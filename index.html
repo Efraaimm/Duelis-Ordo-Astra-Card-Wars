@@ -1317,4 +1317,91 @@ html body .game > .arena > .side:not(.player) .deck small{font-size:6px!importan
 }
 </style>
 
+
+<style id="duelis-hud-polish-v1">
+/* HUD superior: retratos, barras e informação organizados sem tocar na lógica do jogo. */
+@media (min-width:761px){
+  .arena{
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;
+    grid-template-rows:88px minmax(360px,1fr)!important;
+    gap:10px!important;
+  }
+  .arena>.side.player{
+    grid-column:1!important;grid-row:1!important;
+    display:flex!important;align-items:center!important;justify-content:flex-start!important;
+    min-width:0!important;height:88px!important;min-height:88px!important;
+    padding:8px 16px!important;border-radius:12px 5px 5px 12px!important;
+    border:1px solid #9b8359!important;
+    background:linear-gradient(105deg,#17283b 0%,#111a2a 68%,#171523 100%)!important;
+    box-shadow:inset 0 1px #ffffff20, inset 4px 0 #7dc5e455,0 8px 22px #0008!important;
+  }
+  .arena>.side.player .profile{
+    display:flex!important;flex-direction:row!important;align-items:center!important;
+    justify-content:flex-start!important;gap:13px!important;width:100%!important;min-width:0!important;
+  }
+  .arena>.side.player .avatar{
+    order:-1!important;width:62px!important;height:62px!important;min-width:62px!important;
+    border:2px solid #e0bd75!important;border-radius:8px!important;
+    box-shadow:0 0 0 2px #27364b,0 0 18px #4a9cc755!important;
+  }
+  .arena>.side.player .profile>div:first-child{flex:1 1 auto!important;min-width:0!important}
+  .arena>.side.player .name{font-size:clamp(15px,1.25vw,19px)!important;letter-spacing:1.1px!important}
+  .arena>.side.player .role{display:block!important;font-size:9px!important;letter-spacing:1.5px!important}
+  .arena>.side.player .health,.arena>.side.player .shieldline{display:flex!important}
+  .arena>.side.player .hpbar{width:clamp(90px,13vw,175px)!important;height:8px!important}
+  .arena>.side.player .shieldbar{width:70px!important;height:5px!important}
+  .arena>.side:not(.player){
+    grid-column:2!important;grid-row:1!important;
+    display:grid!important;grid-template-columns:minmax(0,1fr) minmax(165px,205px)!important;
+    grid-template-rows:1fr 1fr!important;align-items:center!important;
+    min-width:0!important;height:88px!important;min-height:88px!important;
+    padding:8px 14px!important;border-radius:5px 12px 12px 5px!important;
+    border:1px solid #9a7182!important;
+    background:linear-gradient(255deg,#2a1928 0%,#171522 48%,#111a2a 100%)!important;
+    box-shadow:inset 0 1px #ffffff20,inset -4px 0 #d17b8050,0 8px 22px #0008!important;
+  }
+  .arena>.side:not(.player) .profile{
+    grid-column:1!important;grid-row:1/3!important;
+    display:flex!important;flex-direction:row-reverse!important;align-items:center!important;
+    justify-content:flex-start!important;gap:13px!important;min-width:0!important;
+  }
+  .arena>.side:not(.player) .profile>div:last-child{
+    flex:1 1 auto!important;min-width:0!important;text-align:right!important;
+  }
+  .arena>.side:not(.player) .avatar{
+    width:62px!important;height:62px!important;min-width:62px!important;
+    border:2px solid #c99b72!important;border-radius:8px!important;
+    box-shadow:0 0 0 2px #392b3c,0 0 18px #bd6c7855!important;
+  }
+  .arena>.side:not(.player) .name{font-size:clamp(15px,1.25vw,19px)!important;letter-spacing:1.1px!important}
+  .arena>.side:not(.player) .role{display:block!important;font-size:9px!important;letter-spacing:1.5px!important}
+  .arena>.side:not(.player) .health,.arena>.side:not(.player) .shieldline{
+    display:flex!important;justify-content:flex-end!important;
+  }
+  .arena>.side:not(.player) .hpbar{width:clamp(90px,12vw,160px)!important;height:8px!important}
+  .arena>.side:not(.player) .shieldbar{width:65px!important;height:5px!important}
+  .arena>.side:not(.player) .enemy-intent{
+    position:static!important;grid-column:2!important;grid-row:1!important;
+    display:block!important;align-self:center!important;justify-self:stretch!important;
+    max-width:none!important;min-width:0!important;padding:6px 8px!important;
+    border:1px solid #b98b63!important;border-radius:8px!important;
+    background:linear-gradient(110deg,#30212b,#1a1c2a)!important;
+    color:#f2d6a7!important;font-size:9px!important;text-align:center!important;
+    white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;
+  }
+  .arena>.side:not(.player) .resources{
+    grid-column:2!important;grid-row:2!important;display:flex!important;
+    justify-content:center!important;align-items:center!important;gap:9px!important;
+    min-width:0!important;flex-wrap:nowrap!important;
+  }
+  .arena>.side:not(.player) .deck{
+    border:0!important;padding:0!important;font-size:8px!important;white-space:nowrap!important;
+  }
+  .arena>.board{grid-column:1/3!important;grid-row:2!important;min-width:0!important}
+}
+@media(max-width:760px){
+  .arena>.side.player,.arena>.side:not(.player){border-radius:8px!important}
+}
+</style>
+
 </body></html>
