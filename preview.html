@@ -1826,4 +1826,208 @@ html body .game>.bottom>.battle-wheel #endTurn:hover{transform:translateX(-50%) 
  html body .game>.bottom>.pass-stack .pile-button{width:62px!important;min-width:62px!important;max-width:62px!important}
 }
 </style>
+
+<style id="duelis-yellow-markups-fix">
+/* Correção estrutural dos pontos assinalados na captura de 15/11. */
+@media (min-width:851px){
+ html body .game{
+   grid-template-rows:100px minmax(430px,1fr) 250px!important;
+ }
+ html body .game>.arena{
+   grid-template-rows:96px minmax(330px,1fr)!important;
+ }
+ html body .game>.arena>.side:not(.player){
+   display:grid!important;
+   grid-template-columns:minmax(0,1fr) 172px 224px!important;
+   grid-template-rows:1fr!important;
+   align-items:center!important;
+   gap:8px!important;
+   padding:7px 10px!important;
+   overflow:hidden!important;
+ }
+ html body .game>.arena>.side:not(.player)>.profile{
+   grid-column:1!important;grid-row:1!important;
+   display:flex!important;flex-direction:row-reverse!important;
+   justify-content:flex-start!important;align-items:center!important;
+   min-width:0!important;gap:10px!important;
+ }
+ html body .game>.arena>.side:not(.player)>.profile>.avatar{
+   flex:0 0 43px!important;
+ }
+ html body .game>.arena>.side:not(.player)>.profile>div:last-child{
+   flex:1 1 auto!important;min-width:0!important;
+   display:flex!important;flex-direction:column!important;
+   align-items:flex-start!important;text-align:left!important;
+ }
+ html body .game>.arena>.side:not(.player)>.profile .name{
+   white-space:nowrap!important;max-width:100%!important;
+   overflow:hidden!important;text-overflow:ellipsis!important;
+   font-size:clamp(13px,1.15vw,18px)!important;
+ }
+ html body .game>.arena>.side:not(.player)>.profile .health,
+ html body .game>.arena>.side:not(.player)>.profile .shieldline{
+   display:none!important;
+ }
+ html body .game>.arena>.side:not(.player)>.enemy-vitals{
+   grid-column:2!important;grid-row:1!important;
+   min-width:0!important;width:100%!important;
+   display:flex!important;flex-direction:column!important;
+   justify-content:center!important;align-items:stretch!important;
+   gap:9px!important;padding:4px 8px!important;
+   border-left:1px solid #b38b4b55;
+   border-right:1px solid #b38b4b55;
+ }
+ html body .game>.arena>.side:not(.player)>.enemy-vitals .health{
+   display:flex!important;flex-wrap:nowrap!important;
+   align-items:center!important;gap:5px!important;
+   margin:0!important;width:100%!important;
+ }
+ html body .game>.arena>.side:not(.player)>.enemy-vitals .hpbar{
+   flex:1 1 auto!important;width:auto!important;min-width:35px!important;
+ }
+ html body .game>.arena>.side:not(.player)>.enemy-vitals .hpnum{flex:0 0 auto!important}
+ html body .game>.arena>.side:not(.player)>.enemy-vitals .shieldline{
+   display:flex!important;align-items:center!important;
+   gap:5px!important;margin:0!important;white-space:nowrap!important;
+ }
+ html body .game>.arena>.side:not(.player)>.enemy-vitals .shieldbar{
+   flex:1 1 auto!important;width:auto!important;min-width:25px!important;
+ }
+ html body .game>.arena>.side:not(.player)>.enemy-intent{
+   grid-column:3!important;grid-row:1!important;
+   width:100%!important;max-width:none!important;
+   min-width:0!important;box-sizing:border-box!important;
+   justify-self:stretch!important;align-self:center!important;
+   white-space:nowrap!important;overflow:hidden!important;
+   text-overflow:ellipsis!important;
+ }
+ html body .game>.arena>.side:not(.player)>.resources{
+   grid-column:3!important;grid-row:1!important;
+   align-self:end!important;justify-self:stretch!important;
+   display:flex!important;flex-wrap:nowrap!important;
+   justify-content:space-between!important;align-items:center!important;
+   width:100%!important;min-width:0!important;
+   gap:5px!important;overflow:visible!important;
+   transform:translateY(1px)!important;
+ }
+ html body .game>.arena>.side:not(.player)>.resources .energy,
+ html body .game>.arena>.side:not(.player)>.resources .deck{
+   display:flex!important;align-items:center!important;
+   gap:3px!important;min-width:0!important;
+   padding-left:4px!important;border-left:1px solid #b38b4b55!important;
+   white-space:nowrap!important;font-size:8px!important;
+ }
+ html body .game>.arena>.side:not(.player)>.resources .deck small{
+   font-size:7px!important;letter-spacing:.3px!important;
+ }
+ html body .game>.bottom{
+   display:grid!important;
+   grid-template-columns:92px minmax(0,1fr) 136px 220px!important;
+   grid-template-rows:minmax(0,1fr)!important;
+   height:250px!important;min-height:250px!important;
+   max-height:250px!important;width:100%!important;
+   box-sizing:border-box!important;
+   padding:8px 10px!important;gap:8px!important;
+   align-items:center!important;overflow:visible!important;
+ }
+ html body .game>.bottom>.energy-dock{
+   grid-column:1!important;grid-row:1!important;
+   display:flex!important;justify-content:center!important;
+   align-items:center!important;min-width:0!important;
+   width:100%!important;overflow:visible!important;
+ }
+ html body .game>.bottom>.energy-dock>.deck-pile{
+   display:grid!important;grid-template-columns:22px 1fr!important;
+   grid-template-rows:auto auto!important;
+   justify-items:center!important;align-items:center!important;
+   width:82px!important;min-width:82px!important;max-width:82px!important;
+   min-height:48px!important;padding:5px!important;
+   box-sizing:border-box!important;gap:2px!important;
+ }
+ html body .game>.bottom>.energy-dock>.deck-pile span{
+   grid-row:1/3!important;font-size:16px!important;
+ }
+ html body .game>.bottom>.energy-dock>.deck-pile small{
+   font-size:7px!important;white-space:nowrap!important;
+ }
+ html body .game>.bottom>.energy-dock>.deck-pile b{font-size:11px!important}
+ html body .game>.bottom>.handwrap{
+   grid-column:2!important;grid-row:1!important;
+   min-width:0!important;width:100%!important;overflow:hidden!important;
+ }
+ html body .game>.bottom>.handwrap>.handtitle{
+   margin:0 6px 7px!important;min-height:16px!important;
+ }
+ html body .game>.bottom>.pass-stack{
+   grid-column:3!important;grid-row:1!important;
+   display:flex!important;flex-direction:column!important;
+   justify-content:center!important;align-items:center!important;
+   width:100%!important;min-width:0!important;
+   overflow:visible!important;gap:5px!important;
+ }
+ html body .game>.bottom>.pass-stack>.pile-button{
+   display:grid!important;grid-template-columns:22px 1fr!important;
+   grid-template-rows:auto auto!important;
+   justify-items:center!important;align-items:center!important;
+   width:126px!important;min-width:126px!important;max-width:126px!important;
+   min-height:48px!important;padding:5px!important;
+   box-sizing:border-box!important;gap:2px!important;
+ }
+ html body .game>.bottom>.pass-stack>.pile-button span{grid-row:1/3!important;font-size:16px!important}
+ html body .game>.bottom>.pass-stack>.pile-button small{font-size:7px!important;white-space:nowrap!important}
+ html body .game>.bottom>.pass-stack>.pile-button b{font-size:11px!important}
+ html body .game>.bottom>.battle-wheel{
+   grid-column:4!important;grid-row:1!important;
+   justify-self:center!important;align-self:center!important;
+   width:204px!important;height:204px!important;
+   max-width:100%!important;max-height:100%!important;
+   margin:0!important;flex:none!important;
+ }
+ html body .game>.bottom>.battle-wheel #endTurn{
+   left:50%!important;bottom:12px!important;
+   width:142px!important;height:48px!important;
+   transform:translateX(-50%)!important;
+ }
+ html body .game>.bottom>.battle-wheel .wheel-energy{
+   left:12px!important;top:10px!important;
+   width:76px!important;height:82px!important;
+ }
+ html body .game>.bottom>.battle-wheel .wheel-life{
+   right:12px!important;top:10px!important;
+   width:72px!important;height:72px!important;
+ }
+}
+@media(max-width:850px){
+ html body .game>.arena>.side:not(.player){
+   grid-template-columns:minmax(0,1fr) 120px 160px!important;
+   gap:4px!important;
+ }
+ html body .game>.bottom{
+   grid-template-columns:66px minmax(0,1fr) 92px 154px!important;
+   height:190px!important;min-height:190px!important;
+   max-height:190px!important;gap:4px!important;padding:5px!important;
+ }
+ html body .game>.bottom>.energy-dock>.deck-pile{width:62px!important;min-width:62px!important}
+ html body .game>.bottom>.pass-stack>.pile-button{width:88px!important;min-width:88px!important;max-width:88px!important}
+ html body .game>.bottom>.battle-wheel{width:146px!important;height:146px!important}
+}
+</style>
+<script id="duelis-yellow-markups-fix-script">
+(()=>{
+ const enemy=document.querySelector('.arena>.side:not(.player)');
+ if(enemy&&!enemy.querySelector(':scope>.enemy-vitals')){
+   const profile=enemy.querySelector(':scope>.profile');
+   const health=profile?.querySelector('.health');
+   const shield=profile?.querySelector('.shieldline');
+   if(profile&&(health||shield)){
+     const vitals=document.createElement('div');
+     vitals.className='enemy-vitals';
+     vitals.setAttribute('aria-label','Vida e escudo do inimigo');
+     if(health)vitals.append(health);
+     if(shield)vitals.append(shield);
+     profile.after(vitals);
+   }
+ }
+})();
+</script>
 </body></html>
