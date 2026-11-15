@@ -1169,4 +1169,19 @@ html body .game > .bottom{
 .handwrap{overflow:visible!important;min-height:0!important}
 </style>
 
+
+<style id="duelis-hand-overflow-final">
+/* Desktop: all cards fit, so do not create a scroll viewport that clips hover/selection */
+@media(min-width:851px){
+ #hand.hand{overflow:visible!important; padding-top:24px!important; padding-bottom:12px!important}
+ .handwrap{overflow:visible!important}
+}
+@media(max-width:850px){
+ #hand.hand{overflow-x:auto!important;overflow-y:hidden!important}
+ #hand.hand>.card:hover,#hand.hand>.card.previewed,#hand.hand>.card.committing{
+  transform:translateY(-2px) scale(1.01)!important;
+ }
+}
+</style>
+
 </body></html>
