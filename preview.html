@@ -1646,6 +1646,55 @@ html body .game>.bottom>.battle-wheel #endTurn{left:50%!important;top:auto!impor
   `;
   document.head.append(ultraCompact);
 
+  const viewportFit=document.createElement('style');
+  viewportFit.id='duelis-campaign-viewport-fit-v3';
+  viewportFit.textContent=`
+    /* Usar melhor a largura disponível e nunca cortar o menu */
+    #intro.overlay{
+      display:flex!important;align-items:flex-start!important;justify-content:center!important;
+      overflow-x:hidden!important;overflow-y:auto!important;padding:10px 12px!important;
+      box-sizing:border-box!important;
+    }
+    #intro .modal{
+      width:min(1080px,96vw)!important;max-width:1080px!important;
+      max-height:none!important;height:auto!important;min-height:0!important;
+      overflow:visible!important;box-sizing:border-box!important;
+      padding:12px 18px 14px!important;margin:auto!important;
+    }
+    #intro .modal .big{font-size:30px!important;margin:0 auto 3px!important}
+    #intro .modal h2{font-size:clamp(28px,3.2vw,40px)!important;line-height:1.05!important;margin:4px 0!important}
+    #intro .modal>p{max-width:760px!important;font-size:11px!important;line-height:1.3!important;margin:4px auto 7px!important}
+    #intro .campaign-panel{width:min(920px,94%)!important;max-width:920px!important;margin:6px auto!important;padding:8px 12px!important}
+    #intro .campaign-name{max-width:920px!important;margin:5px auto!important}
+    #intro .campaign-route{margin:5px 0 4px!important;padding:6px 8px!important}
+    #intro .route-step{flex-basis:70px!important;min-height:64px!important}
+    #intro .route-node{width:27px!important;height:27px!important}
+    #intro .route-name{font-size:7px!important}
+    #intro .campaign-summary{font-size:9px!important;margin:3px 0!important}
+    #intro .campaign-panel label[for="campaignDifficulty"]{margin:4px 0!important}
+    #intro .rpg-progress-panel{margin:5px 0 2px!important;padding:7px 9px!important}
+    #intro .rpg-progress-panel .rpg-meta{font-size:8px!important}
+    #intro .rpg-progress-panel .rpg-attributes{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:6px!important}
+    #intro .rpg-progress-panel .rpg-attributes>div{min-height:38px!important;padding:5px 7px!important;font-size:9px!important}
+    #intro .rpg-effects{font-size:7px!important;line-height:1.25!important}
+    #intro .menu-actions{display:flex!important;justify-content:center!important;flex-wrap:wrap!important;gap:8px!important;margin:7px auto 0!important}
+    #intro .menu-actions button{min-height:34px!important;padding:7px 14px!important;font-size:10px!important}
+    @media(max-height:700px){
+      #intro.overlay{padding-top:5px!important}
+      #intro .modal{padding-top:7px!important;padding-bottom:8px!important}
+      #intro .modal .big{font-size:24px!important}
+      #intro .modal h2{font-size:26px!important}
+      #intro .campaign-route{margin:3px 0!important}
+      #intro .rpg-progress-panel{margin:3px 0!important}
+    }
+    @media(max-width:600px){
+      #intro .campaign-panel{width:100%!important}
+      #intro .rpg-progress-panel .rpg-attributes{grid-template-columns:1fr!important}
+    }
+  `;
+  document.head.append(viewportFit);
+
+
 
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>{installButton();render()},{once:true});else{installButton();render()}
 })();
