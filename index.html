@@ -1060,4 +1060,25 @@ header.top{background:linear-gradient(90deg,#100d17ee,#211728f5,#100d17ee)!impor
  #hand.hand>.card{border-radius:4px 11px 4px 11px!important}
 }
 </style>
+
+<style id="duelis-avatar-repair-01">
+/* Repair: restore enemy commander portrait sprite after legacy avatar background shorthand */
+.arena>.side:not(.player) .avatar{
+ display:grid!important;
+ background-color:#17101f!important;
+ background-image:linear-gradient(#1112,#1112),url('herois-20-retratos.png')!important;
+ background-size:auto,auto 400%!important;
+ background-position:center,93.1% 33.333%!important;
+ background-repeat:no-repeat!important;
+ background-origin:border-box!important;
+ background-clip:padding-box!important;
+ font-size:0!important;
+}
+.arena>.side.player .avatar{
+ background-image:linear-gradient(#1112,#1112),url('herois-20-retratos.png')!important;
+ background-size:auto,auto 400%!important;
+ background-position:center,0 0!important;
+ background-repeat:no-repeat!important;
+}
+</style>
 </body></html>
