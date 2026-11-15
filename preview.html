@@ -1081,4 +1081,48 @@ header.top{background:linear-gradient(90deg,#100d17ee,#211728f5,#100d17ee)!impor
  background-repeat:no-repeat!important;
 }
 </style>
+
+<style id="duelis-header-brand-restore">
+/* Restore the game identity in the compact top bar; preserve battle layout */
+header.top{
+ display:flex!important;align-items:center!important;justify-content:space-between!important;
+ gap:12px!important;height:auto!important;min-height:56px!important;
+ padding:6px 12px!important;overflow:visible!important;
+ background:linear-gradient(90deg,#100d17ee,#211728f5,#100d17ee)!important;
+ border:1px solid #705879!important;border-bottom:2px solid #a27cae!important;
+ border-radius:13px!important;box-shadow:0 8px 28px #000b,inset 0 1px #ffffff19!important;
+}
+header.top .brand{
+ display:flex!important;visibility:visible!important;opacity:1!important;
+ flex:1 1 auto!important;min-width:0!important;align-items:center!important;
+ gap:10px!important;
+}
+header.top .brand .logo{
+ display:grid!important;place-items:center!important;flex:0 0 40px!important;
+ width:40px!important;height:40px!important;border:1px solid #c4a4d1!important;
+ border-radius:10px!important;background:radial-gradient(circle at 35% 25%,#b08ac0,#38223f 55%,#100d17)!important;
+ box-shadow:0 0 18px #a66cba55,inset 0 0 12px #fff3!important;color:#f4eafa!important;
+}
+header.top .brand h1{
+ display:block!important;visibility:visible!important;opacity:1!important;
+ margin:0!important;font-size:clamp(14px,1.5vw,22px)!important;
+ letter-spacing:2px!important;color:#f4eafa!important;
+ text-shadow:0 0 18px #b77ccc88!important;
+}
+header.top .brand .subtitle{
+ display:block!important;visibility:visible!important;opacity:1!important;
+ margin-top:2px!important;font-size:8px!important;letter-spacing:1.5px!important;color:#b7a6c0!important;
+}
+header.top .topright{
+ display:flex!important;flex:0 0 auto!important;width:auto!important;min-width:0!important;
+ align-items:center!important;justify-content:flex-end!important;gap:5px!important;
+}
+@media(max-width:760px){
+ header.top{min-height:42px!important;padding:4px 6px!important;gap:5px!important}
+ header.top .brand .logo{flex-basis:32px!important;width:32px!important;height:32px!important}
+ header.top .brand h1{font-size:12px!important;letter-spacing:1px!important}
+ header.top .brand .subtitle{display:none!important}
+ header.top .topright{gap:3px!important}
+}
+</style>
 </body></html>
