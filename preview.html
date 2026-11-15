@@ -1,9 +1,9 @@
 <!doctype  html>
 <html  lang="pt-BR">
 <head>
-<meta  charset="utf-8"><meta  name="viewport"  content="width=device-width,initial-scale=1"><meta  name="theme-color"  content="#101810"><title>DUELIS ORDO ASTRA — CARD WARS</title>
-<meta name="description" content="DUELIS ORDO ASTRA: um jogo de cartas de fantasia sombria, heróis, ordens e batalhas táticas.">
-<style>
+<meta  charset="utf-8"><meta  name="viewport"  content="width=device-width,initial-scale=1"><meta  name="theme-color"  content="#101810"><style>
+<title>Última  Fronteira  —  Batalha  de  Cartas</title>
+
 @import  url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Barlow:wght@400;500;600;700;800&display=swap');
 :root{--bg:#101610;--panel:#182119;--panel2:#202a20;--line:#394337;--text:#f2efdf;--muted:#a3aa96;--gold:#e3bd65;--red:#d66d56;--green:#78a875;--blue:#87aec0;--shadow:0  12px  35px  #0008}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse  at  50%  -25%,#425237  0,#1a241a  45%,#0c110d  100%);color:var(--text);font-family:Barlow,Arial,sans-serif;min-height:100vh}button{font:inherit;color:inherit;cursor:pointer}.game{max-width:1280px;margin:auto;padding:18px  26px  22px;min-height:100vh;display:flex;flex-direction:column;gap:13px}.top{display:flex;align-items:center;justify-content:space-between;border-bottom:1px  solid  #65705266;padding:0  3px  12px}.brand{display:flex;align-items:center;gap:11px}.logo{width:42px;height:42px;border:1px  solid  var(--gold);color:var(--gold);display:grid;place-items:center;font-size:23px;transform:rotate(45deg);border-radius:6px}.logo  span{transform:rotate(-45deg)}h1{font:800  25px  'Barlow  Condensed',sans-serif;letter-spacing:2px;margin:0}.subtitle{font-size:10px;color:var(--muted);letter-spacing:2.1px;text-transform:uppercase}.topright{display:flex;align-items:center;gap:10px}.turn-pill,.round-pill{border:1px  solid  var(--line);border-radius:99px;padding:7px  12px;font-size:11px;letter-spacing:.7px;text-transform:uppercase;color:#c4c8b9}.round-pill  b{color:var(--gold)}.iconbtn,.smallbtn{background:#20291f;border:1px  solid  var(--line);border-radius:8px;padding:8px  11px;font-size:12px}.iconbtn:hover,.smallbtn:hover{border-color:var(--gold)}.arena{display:grid;gap:11px;flex:1;grid-template-rows:auto  1fr  auto  1fr  auto;min-height:570px}.side{display:grid;grid-template-columns:minmax(210px,1fr)  auto;gap:14px;align-items:center;padding:12px  16px;background:linear-gradient(105deg,#222c22,#182019);border:1px  solid  #46513f;border-radius:11px;box-shadow:0  8px  25px  #0003}.side.player{grid-template-columns:auto  minmax(210px,1fr)}.profile{display:flex;align-items:center;gap:12px}.player  .profile{order:2;justify-content:flex-end}.avatar{width:43px;height:43px;border-radius:50%;display:grid;place-items:center;background:#34402e;border:1px  solid  #6c7c58;font-size:20px}.player  .avatar{background:#49342d;border-color:#95624b}.name{font:700  19px  'Barlow  Condensed',sans-serif;letter-spacing:1px}.role{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1.4px}.health{display:flex;align-items:center;gap:7px;margin-top:5px}.heart{color:var(--red)}.hpbar{width:128px;height:6px;background:#111711;border-radius:8px;overflow:hidden}.hpfill{height:100%;background:linear-gradient(90deg,#b64736,#e28259);transition:width  .35s}.hpnum{font-size:12px;font-weight:700}.resources{display:flex;align-items:center;gap:8px}.energy{display:flex;align-items:center;gap:5px;font-size:12px;color:#b8c7cf}.gem{width:18px;height:21px;background:linear-gradient(140deg,#d5f1ec,#75aab8  55%,#537689);clip-path:polygon(50%  0,100%  30%,80%  100%,20%  100%,0  30%);filter:drop-shadow(0  2px  3px  #000)}.deck{font-size:11px;color:var(--muted);border-left:1px  solid  #46513f;padding-left:12px}.deck  b{color:var(--text)}.board{position:relative;display:grid;grid-template-columns:1fr  1fr;gap:14px;padding:8px  15px;align-items:center;background:linear-gradient(180deg,#2936299c,#152019aa);border:1px  solid  #394b37;border-radius:11px;min-height:146px}.board:after{content:'';position:absolute;left:5%;right:5%;top:50%;border-top:1px  dashed  #89947c44}.lane{display:flex;justify-content:center;align-items:center;gap:9px;min-height:112px;z-index:1}.lane-label{position:absolute;font:700  10px  'Barlow  Condensed',sans-serif;text-transform:uppercase;letter-spacing:2px;color:#d3d8be66;left:13px;top:8px}.playerlane  .lane-label{top:auto;bottom:8px}.unit{position:relative;width:112px;height:106px;flex:none;border-radius:9px;border:1px  solid  #a3a47d;background:linear-gradient(155deg,#535940,#29352a  60%,#202a22);box-shadow:0  6px  14px  #0007;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:7px  8px;animation:enter  .25s  ease-out}.unit.enemy{background:linear-gradient(155deg,#674638,#3c3029  60%,#28251f);border-color:#a87959}.unit.ready:after{content:'';position:absolute;inset:-3px;border:1px  solid  #e2c765aa;border-radius:11px;pointer-events:none}.unit  .uicon{font-size:27px;line-height:1}.unit  .uname{font:700  13px  'Barlow  Condensed',sans-serif;text-align:center;line-height:1}.unit  .ustats{display:flex;justify-content:space-between;width:100%;font-weight:800;font-size:13px}.atk{color:#f1ad71}.def{color:#a8d4d9}.unit  .exhaust{position:absolute;inset:0;background:#090c0aa8;border-radius:8px;display:none}.unit.tired  .exhaust{display:block}.empty{color:#a0a89177;font-size:11px;text-transform:uppercase;letter-spacing:1.5px}.divider{display:flex;align-items:center;gap:12px;color:#abb39e;font-size:10px;letter-spacing:2px;text-transform:uppercase}.divider:before,.divider:after{content:'';height:1px;background:#56634b66;flex:1}.feed{min-height:38px;display:flex;align-items:center;justify-content:center;text-align:center;font-size:12px;color:#e1d9bc;background:#11181291;border:1px  solid  #374434;border-radius:8px;padding:8px  14px}.bottom{display:grid;grid-template-columns:1fr  auto;gap:14px;align-items:end}.handwrap{min-width:0}.handtitle{font:700  12px  'Barlow  Condensed',sans-serif;letter-spacing:1.8px;text-transform:uppercase;color:#b5bcaa;margin:0  0  8px  4px;display:flex;justify-content:space-between}.hand{display:flex;gap:10px;min-height:164px;overflow-x:auto;padding:3px  4px  10px}.card{position:relative;width:124px;min-width:124px;height:157px;border:1px  solid  #71795a;border-radius:9px;background:linear-gradient(150deg,#48513b,#222d23  68%,#1a211c);box-shadow:0  7px  15px  #0005;display:flex;flex-direction:column;align-items:center;padding:8px  9px;transition:transform  .16s,border-color  .16s,opacity  .16s;text-align:center;cursor:pointer}.card:hover{transform:translateY(-7px);border-color:var(--gold)}.card.disabled{opacity:.48;filter:grayscale(.5);cursor:not-allowed}.card.disabled:hover{transform:none}.card.spell{background:linear-gradient(150deg,#3c5961,#243538  68%,#1d292b);border-color:#7195a0}.cost{position:absolute;top:5px;left:6px;background:#8daeb1;color:#101818;font:800  15px  'Barlow  Condensed',sans-serif;width:22px;height:22px;border-radius:50%;display:grid;place-items:center}.cardicon{font-size:35px;line-height:1;margin:10px  0  5px}.cardname{font:700  16px  'Barlow  Condensed',sans-serif;line-height:1.05;min-height:29px;display:grid;place-items:center}.carddesc{font-size:10px;line-height:1.25;color:#c5cbb9;margin:4px  0}.cardstats{margin-top:auto;width:100%;display:flex;justify-content:space-between;font-size:12px;font-weight:800}.endturn{width:132px;height:55px;border:1px  solid  #e0bf6d;border-radius:9px;background:linear-gradient(145deg,#b88c42,#83612c);box-shadow:0  5px  15px  #0005;font:800  16px  'Barlow  Condensed',sans-serif;letter-spacing:1px;text-transform:uppercase;color:#fff5da}.endturn:hover{filter:brightness(1.14)}.endturn:disabled{opacity:.55;cursor:default}.endturn  small{display:block;font:500  9px  Barlow,sans-serif;letter-spacing:1px;margin-top:2px}.overlay{position:fixed;inset:0;background:#08100dd9;display:grid;place-items:center;z-index:5;padding:20px}.modal{max-width:520px;width:100%;padding:30px;background:linear-gradient(145deg,#293629,#161e18);border:1px  solid  #7c815f;border-radius:14px;box-shadow:var(--shadow);text-align:center}.modal  .big{font-size:44px}.modal  h2{font:800  32px  'Barlow  Condensed',sans-serif;letter-spacing:2px;margin:6px  0}.modal  p{color:#c5cbbb;line-height:1.55}.modal  button{border:1px  solid  var(--gold);background:#9b7739;padding:12px  21px;border-radius:8px;font-weight:800;margin-top:10px}.hidden{display:none!important}.log{position:fixed;right:20px;top:72px;width:260px;background:#151d17;border:1px  solid  #45503e;border-radius:9px;padding:12px;z-index:3;box-shadow:var(--shadow);font-size:11px;line-height:1.6}.log  h3{font:700  14px  'Barlow  Condensed';margin:0  0  6px;text-transform:uppercase;letter-spacing:1px}.log  div{border-top:1px  solid  #ffffff12;padding:4px  0;color:#bec4b4}.help{position:fixed;inset:0;background:#08100ddd;z-index:7;display:grid;place-items:center;padding:16px}.helpbox{max-width:520px;background:#1a241c;border:1px  solid  #6f7757;border-radius:13px;padding:24px}.helpbox  h2{font:800  27px  'Barlow  Condensed';margin:0  0  10px}.helpbox  p,.helpbox  li{font-size:13px;color:#d1d5c6;line-height:1.55}.helpbox  button{background:#927139;border:1px  solid  #d4b15e;border-radius:7px;padding:9px  18px;margin-top:7px}.toast{position:fixed;top:80px;left:50%;transform:translateX(-50%);background:#222a20;border:1px  solid  var(--gold);border-radius:8px;padding:10px  16px;font-size:13px;z-index:9;box-shadow:var(--shadow);animation:fade  2.3s  forwards}@keyframes  enter{from{transform:translateY(9px);opacity:0}to{transform:translateY(0);opacity:1}}@keyframes  fade{0%,80%{opacity:1}100%{opacity:0}}@media(max-width:700px){.game{padding:12px;gap:9px}.top{align-items:flex-start}.subtitle{display:none}.turn-pill{display:none}.arena{min-height:520px;grid-template-rows:auto  1fr  auto  1fr  auto}.side{padding:9px  11px;grid-template-columns:1fr  auto;gap:6px}.side.player{grid-template-columns:auto  1fr}.name{font-size:16px}.avatar{width:36px;height:36px}.hpbar{width:75px}.deck{font-size:10px;padding-left:7px}.resources{gap:5px}.board{padding:6px;gap:5px;min-height:128px}.lane{gap:5px;min-height:100px}.unit{width:min(27vw,96px);height:91px;padding:5px}.unit  .uicon{font-size:23px}.unit  .uname{font-size:11px}.hand{gap:7px;min-height:147px}.card{width:105px;min-width:105px;height:142px}.cardicon{font-size:30px}.carddesc{font-size:9px}.cardname{font-size:14px}.bottom{grid-template-columns:1fr  auto;gap:7px}.endturn{width:91px;height:49px;font-size:14px}.feed{font-size:10px;min-height:34px}.round-pill{padding:7px}.brand  h1{font-size:20px}.logo{width:36px;height:36px}}
 
@@ -392,122 +392,7 @@ body:not(.mobile-landscape-preview) .game{overflow:hidden}
 @media(max-width:850px){.game{padding:5px 8px 7px!important;grid-template-rows:40px minmax(0,1fr) 220px!important}.top{height:38px!important;min-height:38px!important}.arena{grid-template-rows:66px minmax(0,1fr)!important}.arena .side{height:64px!important;min-height:64px!important}.arena .side .avatar{width:42px!important;height:42px!important}}
 @media(max-width:600px){.game{padding:4px!important;grid-template-rows:36px minmax(0,1fr) 204px!important}.top{height:34px!important;min-height:34px!important}.arena{grid-template-columns:minmax(0,1fr)!important;grid-template-rows:60px 60px minmax(0,1fr)!important}.arena .side.player{grid-column:1!important;grid-row:1!important}.arena .side:not(.player){grid-column:1!important;grid-row:2!important}.arena .board{grid-column:1!important;grid-row:3!important}.arena .side{height:58px!important;min-height:58px!important}.arena .side .avatar{width:36px!important;height:36px!important}.bottom{grid-template-columns:50px minmax(0,1fr) 54px!important}#hand.hand{height:184px!important;min-height:184px!important}#hand.hand>.card{height:clamp(132px,19vh,160px)!important}}
 .modal .campaign-panel{margin:12px 0;padding:12px;border:1px solid #c99e50;border-radius:8px;background:linear-gradient(120deg,#102443,#09152a);text-align:left}.campaign-panel .campaign-meta{display:flex;justify-content:space-between;align-items:center;gap:8px;color:#ffe298;font-size:12px;font-weight:800}.campaign-panel .campaign-summary{margin-top:7px;color:#c6d2e2;font-size:11px;line-height:1.4}.campaign-panel label{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:10px;color:#ecd99e;font-size:11px}.campaign-panel select{max-width:170px;padding:7px 9px;border:1px solid #98713b;border-radius:6px;background:#091329;color:#fff0c5}.modal .menu-actions{display:flex;justify-content:center;flex-wrap:wrap;gap:8px}.modal .menu-actions button{margin-top:6px}.modal .menu-actions #startBtn{min-width:200px;background:linear-gradient(145deg,#e6aa42,#a75020);border-color:#ffe09a}
-</style><style>.campaign-level{display:inline-block;margin:0 auto 6px;padding:5px 10px;border:1px solid #c89f42;border-radius:99px;background:#09172ccc;color:#ffe6a0;font-size:10px;font-weight:800;letter-spacing:1px}.campaign-level b{font-size:14px;color:#fff}</style>
-<style id="duelis-dark-fantasy-phase1">
-:root{
-  color-scheme:dark;
-  --bg:#080a10;--panel:#11151f;--panel2:#191e2b;--line:#34394a;
-  --text:#f3eee4;--muted:#a8a6ad;--gold:#d7ad62;--red:#b95750;
-  --green:#829a78;--blue:#7f9db8;--shadow:0 18px 55px #000b;
-}
-html{background:#080a10;scroll-behavior:smooth}
-body{
-  background:
-    radial-gradient(ellipse at 50% -18%,#3a2b2a 0,transparent 42%),
-    radial-gradient(ellipse at 12% 55%,#1c2332 0,transparent 38%),
-    linear-gradient(145deg,#090b12 0%,#11131d 52%,#080a10 100%);
-  color:var(--text);
-}
-body:before{
-  content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;opacity:.22;
-  background-image:radial-gradient(#c6a66a 0.55px,transparent .8px);
-  background-size:23px 23px;mask-image:linear-gradient(to bottom,#000,transparent 80%);
-}
-.game{max-width:1380px;padding:22px clamp(12px,2.5vw,34px) 28px;gap:16px}
-.top{border-bottom:1px solid #b18a4a55;padding-bottom:15px}
-.logo{background:linear-gradient(145deg,#30221f,#11151f);border-color:#d7ad62;color:#f1cf8c;box-shadow:0 0 24px #d7ad6222,inset 0 0 12px #d7ad6218}
-h1,.name,.unit .uname,.cardname,.modal h2,.helpbox h2{color:#f5ead6;text-shadow:0 2px 12px #0009}
-.subtitle,.role,.deck,.handtitle{color:#b5ad9f}
-.turn-pill,.round-pill,.iconbtn,.smallbtn,.pile-button{
-  background:linear-gradient(145deg,#202330,#11151f);border:1px solid #555064;color:#e9dfce;
-  box-shadow:inset 0 1px #ffffff0c,0 5px 16px #0004;transition:transform .18s,border-color .18s,filter .18s;
-}
-.iconbtn:hover,.smallbtn:hover,.pile-button:hover{border-color:var(--gold);filter:brightness(1.12);transform:translateY(-1px)}
-.arena{gap:13px}
-.side{
-  background:linear-gradient(110deg,#211f27ee,#121722f2 70%,#171923);
-  border:1px solid #65534488;border-radius:13px;box-shadow:0 10px 28px #0006,inset 0 1px #ffffff0b;
-}
-.avatar{background:radial-gradient(circle at 35% 25%,#6c5842,#252532 68%);border-color:#b18a5e;box-shadow:0 0 18px #d7ad6222}
-.player .avatar{background:radial-gradient(circle at 35% 25%,#6e393b,#25202a 68%);border-color:#b96b63}
-.hpbar,.shieldbar{background:#090b11;box-shadow:inset 0 1px 4px #000}
-.board{
-  background:
-    radial-gradient(ellipse at center,#27303b88 0,transparent 68%),
-    linear-gradient(180deg,#111a24ed,#0c1119f2);
-  border:1px solid #5b5a5c;border-radius:14px;
-  box-shadow:inset 0 0 45px #0007,0 12px 28px #0005;
-}
-.board:after{border-color:#c1a36b40}
-.lane-label{color:#d9c49b88}
-.divider{color:#c2ad87}
-.divider:before,.divider:after{background:linear-gradient(90deg,transparent,#8c7655aa,transparent)}
-.feed{background:linear-gradient(90deg,#11151ddd,#24202aee,#11151ddd);border-color:#63523e;color:#f0dfbf;box-shadow:inset 0 1px #ffffff0a}
-.unit{
-  background:linear-gradient(155deg,#47404a,#242632 62%,#151923)!important;
-  border:1px solid #c0a06b!important;border-radius:11px;
-  box-shadow:0 9px 20px #0009,inset 0 1px #ffffff18;
-}
-.unit.enemy{background:linear-gradient(155deg,#633b3d,#30232b 65%,#17151e)!important;border-color:#b96a5e!important}
-.unit.ready:after{border-color:#f1cf82;box-shadow:0 0 18px #e5bd6b55}
-.card,.collection-card{
-  background:linear-gradient(155deg,#38313a 0%,#22232e 54%,#121722 100%);
-  border:1px solid #9b8058;border-radius:12px;
-  box-shadow:0 10px 22px #0008,inset 0 1px #ffffff18;
-}
-.card:hover,.card.previewed{border-color:#f0cf8a;box-shadow:0 16px 30px #000b,0 0 22px #d7ad6233}
-.card.spell{background:linear-gradient(155deg,#293d4a,#1b2936 60%,#111923);border-color:#7296a7}
-.card.disabled{filter:grayscale(.55) brightness(.72)}
-.cardname{letter-spacing:.3px}
-.carddesc{color:#d1c8ba}
-.cost{background:linear-gradient(145deg,#f0d99e,#a77a3e);color:#20170f;box-shadow:0 2px 8px #0008}
-.endturn{
-  background:linear-gradient(145deg,#bd914b,#76502b);border:1px solid #f0d18b;color:#fff3d8;
-  box-shadow:0 8px 20px #0007,inset 0 1px #ffffff55;
-}
-.endturn:hover{filter:brightness(1.16);transform:translateY(-2px)}
-.overlay,.help{background:#05070ce8;backdrop-filter:blur(9px)}
-.modal,.helpbox{
-  background:
-    radial-gradient(ellipse at 50% 0,#4b3432 0,transparent 58%),
-    linear-gradient(145deg,#20212b,#10141e 72%);
-  border:1px solid #a18456;border-radius:18px;
-  box-shadow:0 25px 80px #000d,inset 0 1px #ffffff18;
-}
-.modal .big{filter:drop-shadow(0 5px 14px #d7ad6255)}
-.modal h2,.helpbox h2{letter-spacing:2.2px}
-.modal p,.helpbox p,.helpbox li{color:#d0c8bb}
-.modal button,.helpbox button,#startBtn,#againBtn{
-  background:linear-gradient(145deg,#c49a55,#79512e);border:1px solid #f0d18b;
-  color:#fff4dd;border-radius:9px;box-shadow:0 7px 18px #0007,inset 0 1px #ffffff45;
-  transition:filter .18s,transform .18s;
-}
-.modal button:hover,.helpbox button:hover,#startBtn:hover,#againBtn:hover{filter:brightness(1.15);transform:translateY(-1px)}
-select,input[type="text"],input:not([type]){
-  background:#111722;color:#f3eee4;border:1px solid #665943;border-radius:8px;padding:9px;
-}
-input[type="checkbox"]{accent-color:#d7ad62}
-.log{background:#10151fF2;border-color:#766044;box-shadow:var(--shadow);backdrop-filter:blur(8px)}
-.log h3{color:#e6c98f}
-.log div{border-color:#ffffff16;color:#d0c8bb}
-.toast{background:#1d202a;border-color:#d7ad62;color:#f4e8d1;box-shadow:0 10px 30px #0009}
-.quick-guide>div{background:#171d28;border:1px solid #4d4650;border-radius:9px}
-.quick-guide b{color:#e4c48a}
-.campaign-level,.campaign-meta,.route-caption{color:#d9b878}
-:focus-visible{outline:2px solid #f0cf8a!important;outline-offset:3px}
-button:disabled{filter:grayscale(.35)}
-@media(max-width:760px){
-  .game{padding:12px 9px 18px;gap:11px}
-  .top{gap:8px;flex-wrap:wrap}
-  .board{border-radius:10px;padding:7px 6px}
-  .side{padding:9px 10px}
-  .modal,.helpbox{max-height:88vh;overflow:auto;padding:22px 18px}
-}
-@media(prefers-reduced-motion:reduce){
-  *,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
-}
-</style>
-</head>
+</style><style>.campaign-level{display:inline-block;margin:0 auto 6px;padding:5px 10px;border:1px solid #c89f42;border-radius:99px;background:#09172ccc;color:#ffe6a0;font-size:10px;font-weight:800;letter-spacing:1px}.campaign-level b{font-size:14px;color:#fff}</style></head>
 <body><div  class="game"><header  class="top"><div  class="brand"><div  class="logo"><span>⚔</span></div><div><h1>DUELIS  ORDO  ASTRA</h1><div  class="subtitle">DUELO  TÁTICO  DE  HERÓIS  ·  CARTAS  E  MAGIA</div></div></div><div  class="topright"><span  class="turn-pill"  id="turnLabel">Sua  vez</span><span  class="stage-badge">FASE  <b  id="stageLabel">1</b></span><span  class="round-pill">TURNO  <b  id="round">1</b></span><button  class="iconbtn"  id="deckBtn"  title="Coleção  e  deck">🃏</button><button  class="iconbtn"  id="logBtn"  title="Histórico">☰</button><button  class="iconbtn"  id="helpBtn"  title="Regras">📜</button><button class="iconbtn" id="mobilePreviewBtn" title="Pré-visualizar modo horizontal" onclick="document.body.classList.toggle('mobile-landscape-preview');window.scrollTo(0,0)">↔</button><button  class="iconbtn"  id="settingsBtn"  title="Definições">⚙</button><button  class="iconbtn"  id="restartBtn"  title="Recomeçar">↻</button></div></header>
 <nav  class="hud-rail"  aria-label="Atalhos  de  batalha"><button  class="rail-btn"  title="Coleção  e  deck"  onclick="document.getElementById('deckBtn').click()">▤</button><button  class="rail-btn"  title="Manual  de  batalha"  onclick="document.getElementById('helpBtn').click()">⚔</button><button  class="rail-btn"  title="Relatório  de  combate"  onclick="document.getElementById('logBtn').click()">✦</button><button  class="rail-btn"  title="Definições"  onclick="document.getElementById('settingsBtn').click()">♜</button></nav><main  class="arena"><section  class="side"><div  class="profile"><div  class="avatar"  aria-label="Xal'Vek  Azure"></div><div><div  class="name">XAL'VEK  AZURE</div><div  class="role">Suserano  do  Véu</div><div  class="health"><span  class="heart">♥</span><span  class="hp-label">PV</span><div  class="hpbar"><div  class="hpfill"  id="enemyBar"></div></div><span  class="hpnum"  id="enemyHp">30</span></div><div  class="shieldline"><span>🛡  Escudo</span><div  class="shieldbar"><div  class="shieldfill"  id="enemyShieldBar"></div></div><b  id="enemyShield">4</b></div></div></div><div  class="enemy-intent"  id="enemyIntent">⚔️  Aguardando</div><div  class="resources"><span  class="energy"><i  class="gem"></i><b  id="enemyEnergy">1/1</b></span><span  class="deck">BARALHO  <b  id="enemyDeck">46</b></span><span  class="deck">DESCARTE  <b  id="enemyDiscard">0</b></span></div></section>
 <section  class="board"><div  class="lane-label">Exército  sombrio</div><div  class="lane"  id="enemyLane"></div><div  class="lane  playerlane"  id="playerLane"></div><div  class="lane-label  playerlane">Sua  irmandade</div></section>
@@ -868,244 +753,58 @@ body.reduced-motion .arena .side.is-active,body.reduced-motion .arena .board,bod
   game$('startBtn').addEventListener('click',()=>setTimeout(startMusic,0));game$('againBtn').addEventListener('click',()=>setTimeout(()=>{if(S?.started)startMusic();else stopMusic()},0));game$('restartBtn')?.addEventListener('click',()=>setTimeout(()=>{if(S?.started)startMusic();else stopMusic()},0));
 })();
 </script>
-<style id="duelis-dark-fantasy-phase2">
-/* DUELIS ORDO ASTRA — redesign visual da interface, sem alterar o motor */
-:root{--doa-gold:#e8c27b;--doa-ivory:#f7ead2;--doa-ink:#080b13;--doa-panel:#111725;--doa-line:#80643e}
-body{
- background:
-  radial-gradient(ellipse at 50% 0%,#273d59 0%,transparent 43%),
-  radial-gradient(ellipse at 85% 65%,#291d2a 0%,transparent 38%),
-  linear-gradient(145deg,#050811,#101827 55%,#070a12)!important;
-}
-.game{max-width:1600px!important;padding:16px clamp(12px,2vw,30px) 22px!important;gap:13px!important}
-header.top{border-bottom:1px solid #d2a85d77!important;position:relative}
-header.top:before{content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;background:linear-gradient(90deg,transparent,#f3d69a,transparent)}
-.brand .logo{width:48px!important;height:48px!important;border:1px solid #f0d08e!important;background:radial-gradient(circle,#493b31,#111827 70%)!important;box-shadow:0 0 24px #d4a85b44,inset 0 0 14px #f6d38a22!important}
-.brand h1{font-family:Georgia,serif!important;font-size:clamp(19px,2vw,29px)!important;letter-spacing:2.4px!important;color:#f5dfb5!important;text-shadow:0 2px 12px #000,0 0 20px #d7ad6255}
-.brand .subtitle{display:block!important;color:#b9c4d2!important;letter-spacing:2.6px!important;font-size:9px!important}
-.topright .iconbtn{border:1px solid #8d7149!important;background:linear-gradient(145deg,#20283a,#0c1220)!important;color:#f0d49b!important;box-shadow:inset 0 1px #ffffff15,0 4px 12px #0008!important}
-.topright .iconbtn:hover{border-color:#f3d38d!important;box-shadow:0 0 16px #d9b36b55!important}
-.arena .side{
- background:linear-gradient(110deg,#1b2639f2,#0d1422f5)!important;
- border:1px solid #a7834e!important;border-radius:12px!important;
- box-shadow:inset 0 1px #ffffff18,0 10px 26px #0009,0 0 0 1px #30271e!important;
-}
-.arena .side .avatar{border:2px solid #d9b66e!important;box-shadow:0 0 18px #d8ad6340!important}
-.arena .side .name{font-family:Georgia,serif!important;color:#f4dfb8!important;letter-spacing:1.1px!important}
-.arena .side .role{color:#b8c4d4!important;letter-spacing:1.8px!important}
-.arena .side .shieldline{color:#b8d8f3!important}
-.arena .board{
- border:1px solid #c49b58!important;border-radius:15px!important;
- background:linear-gradient(180deg,#08132166,#050b16aa),url('campo-floresta-batalha.png') center 56%/cover!important;
- box-shadow:inset 0 0 0 5px #080d18aa,inset 0 0 70px #02050b,0 12px 30px #000a!important;
-}
-.arena .board:after{content:""!important;display:block!important;inset:8px!important;border:1px solid #e1c17a77!important;border-radius:10px!important;background:linear-gradient(180deg,#08132122,#08101a55)!important;transform:none!important;box-shadow:inset 0 0 55px #0008!important}
-.arena .lane-label{z-index:2!important;color:#f0d49b!important;text-shadow:0 2px 5px #000!important;letter-spacing:2.5px!important}
-.arena .unit{
- border:1px solid #e1c17a!important;border-radius:12px!important;
- background:linear-gradient(155deg,#343b4c,#111827)!important;
- box-shadow:0 12px 24px #000c,inset 0 0 0 2px #080d16,inset 0 0 18px #e5c47b22!important;
-}
-.arena #enemyLane .unit{border-color:#c77d75!important;box-shadow:0 12px 24px #000c,inset 0 0 0 2px #160b12,inset 0 0 18px #c85d5522!important}
-.arena .unit .unit-art{filter:drop-shadow(0 5px 5px #000b)!important}
-.arena .unit .uname{background:linear-gradient(90deg,#080d18f2,#20283af2,#080d18f2)!important;border-color:#c49b58!important;color:#f7e7c8!important;font-family:Georgia,serif!important}
-.arena .unit .ustats{background:#080d18f2!important;color:#f4dfb8!important;border-top:1px solid #a88750!important}
-.arena .feed{background:linear-gradient(90deg,#0a1220,#1c2535,#0a1220)!important;border:1px solid #81643f!important;color:#f2ddb5!important;box-shadow:inset 0 1px #fff1,0 5px 14px #0007!important}
-#hand.hand{gap:12px!important;padding:14px 12px 12px!important;align-items:flex-end!important}
-#hand.hand>.card{
- width:clamp(132px,12vw,178px)!important;min-width:clamp(132px,12vw,178px)!important;
- height:clamp(188px,19vw,246px)!important;min-height:188px!important;
- border:2px solid #b8955d!important;border-radius:14px!important;
- background:linear-gradient(150deg,#343443,#101725 72%)!important;
- box-shadow:0 14px 25px #000b,inset 0 0 0 3px #090e18,inset 0 0 0 4px #d5b16a55!important;
- transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease!important;
-}
-#hand.hand>.card:after{content:"";position:absolute;inset:5px;border:1px solid #e4c98788;border-radius:9px;pointer-events:none;z-index:4}
-#hand.hand>.card .cardart{inset:0 0 36%!important;background-size:auto 400%!important;filter:saturate(1.08) contrast(1.04)!important}
-#hand.hand>.card:before{inset:0 0 35%!important;background:linear-gradient(180deg,#07101a08 45%,#07101a66 100%)!important}
-#hand.hand>.card .cardfooter{
- height:37%!important;min-height:70px!important;padding:8px 9px 7px!important;gap:4px!important;
- background:linear-gradient(180deg,#202638 0%,#0b111d 100%)!important;
- border-top:1px solid #d8b66f!important;
-}
-#hand.hand>.card .cardname{font-family:Georgia,serif!important;font-size:clamp(12px,1vw,15px)!important;line-height:1.08!important;color:#fff0d0!important;text-shadow:0 2px 4px #000!important}
-#hand.hand>.card .carddesc{color:#d6d0c4!important;font-size:clamp(9px,.75vw,11px)!important;line-height:1.18!important}
-#hand.hand>.card .cost{border:1px solid #fff0bf!important;background:radial-gradient(circle at 35% 25%,#fff0ba,#b88336 70%)!important;color:#24170b!important;box-shadow:0 2px 9px #000b!important}
-#hand.hand>.card:hover,#hand.hand>.card.previewed{transform:translateY(-17px) scale(1.045)!important;border-color:#fff0bd!important;box-shadow:0 20px 35px #000d,0 0 24px #e6bd6a55!important}
-#hand.hand>.card.spell{border-color:#73c9e7!important;box-shadow:0 14px 25px #000b,inset 0 0 0 3px #09131e,inset 0 0 0 4px #76d9ff55!important}
-#hand.hand>.card.spell .cardfooter{border-top-color:#72d5f4!important}
-#hand.hand>.card.rarity-legendary{border-color:#f2d178!important;box-shadow:0 14px 25px #000b,0 0 18px #e8b74a44,inset 0 0 0 3px #090e18!important}
-#hand.hand>.card.rarity-epic{border-color:#bd91ed!important}
-#hand.hand>.card.rarity-rare{border-color:#79c5ef!important}
-#hand.hand>.card.rarity-common{border-color:#aeb8c4!important}
-.handtitle{font-family:Georgia,serif!important;color:#e5cc9b!important;letter-spacing:2.5px!important}
-.battle-wheel{filter:drop-shadow(0 0 14px #d7a94a55)!important}
-.battle-wheel #endTurn{background:linear-gradient(145deg,#f0d89a,#a87535 62%,#70451f)!important;border:2px solid #fff0b9!important;color:#25170b!important;text-shadow:0 1px #fff7!important;box-shadow:inset 0 0 0 3px #8d622d,0 8px 20px #000b,0 0 20px #e8b75a55!important}
-.pile-button{background:linear-gradient(145deg,#1b2a40,#0b1220)!important;border:1px solid #b18b50!important;color:#e8d3aa!important;box-shadow:inset 0 1px #fff2,0 5px 12px #0008!important}
-.hud-rail .rail-btn{background:linear-gradient(145deg,#263a54,#0a1220)!important;border-color:#d2aa65!important;color:#f5d895!important}
-.overlay#intro{
- background:linear-gradient(120deg,#050914e8,#0a1422d9 55%,#080b14ed),url('campo-castelo-epico.png') center/cover!important;
- backdrop-filter:blur(5px)!important;padding:clamp(12px,4vw,44px)!important;
-}
-#intro .modal{
- position:relative!important;max-width:900px!important;width:min(900px,96vw)!important;
- min-height:520px!important;padding:clamp(24px,4vw,54px)!important;
- overflow:hidden!important;text-align:center!important;
- background:linear-gradient(180deg,#101a2bdc,#080d18f5 78%),url('campo-castelo-epico.png') center/cover!important;
- border:1px solid #e4c17c!important;border-radius:20px!important;
- box-shadow:0 30px 100px #000e,0 0 0 5px #090e18,0 0 45px #d4a85b33!important;
-}
-#intro .modal:before{content:"";position:absolute;inset:10px;border:1px solid #d6b57477;border-radius:13px;pointer-events:none}
-#intro .modal:after{content:"";position:absolute;left:12%;right:12%;top:0;height:2px;background:linear-gradient(90deg,transparent,#f7dda2,transparent);box-shadow:0 0 20px #f1c979}
-#intro .modal .big{font-size:52px!important;margin:8px auto 12px!important;filter:drop-shadow(0 5px 18px #d5a84c88)}
-#intro .modal:where(*){position:relative;z-index:1}
-#intro .modal:before{z-index:0}
-#intro .modal h2{font-family:Georgia,serif!important;font-size:clamp(30px,5vw,52px)!important;letter-spacing:3px!important;color:#f8e5be!important;text-shadow:0 4px 20px #000,0 0 24px #c79b5544!important;margin:12px 0!important}
-#intro .modal>p{max-width:620px;margin:10px auto 18px!important;color:#d9d3c8!important;font-size:15px!important;line-height:1.6!important}
-#intro .campaign-level{display:inline-block!important;padding:7px 15px!important;border:1px solid #c9a363!important;background:#111b2bdc!important;color:#f3d9a5!important;letter-spacing:2px!important}
-#intro .quick-guide{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:10px!important;max-width:760px;margin:22px auto!important}
-#intro .quick-guide>div{display:flex!important;flex-direction:column!important;gap:7px!important;padding:13px!important;background:linear-gradient(145deg,#1b2a40e8,#0b1321ed)!important;border:1px solid #8f7048!important;border-radius:10px!important;text-align:left!important}
-#intro .quick-guide b{font-family:Georgia,serif!important;color:#f1d39a!important;letter-spacing:1px!important}
-#intro .quick-guide span{color:#d4d9e0!important;line-height:1.4!important}
-#intro .campaign-panel{max-width:680px;margin:16px auto!important;padding:14px 18px!important;background:#0b1422d9!important;border:1px solid #8b704a!important;border-radius:12px!important}
-#intro .campaign-name{max-width:680px;margin:12px auto!important}
-#intro .menu-actions{gap:12px!important}
-#intro .menu-actions button,#intro .modal button{min-height:46px!important;padding:12px 22px!important;font-family:Georgia,serif!important;letter-spacing:.5px!important}
-#intro .menu-actions #startBtn{min-width:230px!important;background:linear-gradient(145deg,#f1d99a,#b37b37 65%,#75451f)!important;color:#25170b!important;border:2px solid #fff0bd!important;box-shadow:0 8px 24px #0009,0 0 20px #d8ac5b44!important}
-@media(max-width:700px){
- #intro .modal{min-height:0!important;padding:25px 16px!important}
- #intro .quick-guide{grid-template-columns:1fr!important;gap:7px!important;margin:13px auto!important}
- #intro .quick-guide>div{padding:9px 11px!important}
- #intro .modal>p{font-size:13px!important}
- #hand.hand{gap:8px!important}
- #hand.hand>.card{width:clamp(112px,25vw,150px)!important;min-width:clamp(112px,25vw,150px)!important;height:clamp(160px,37vw,205px)!important}
-}
-@media(prefers-reduced-motion:no-preference){
- #hand.hand>.card:hover{animation:doa-card-rise .25s ease-out}
- .arena .unit.ready{animation:doa-unit-aura 2.8s ease-in-out infinite alternate}
-}
-@keyframes doa-card-rise{from{transform:translateY(0) scale(1)}to{transform:translateY(-17px) scale(1.045)}}
-@keyframes doa-unit-aura{from{filter:drop-shadow(0 0 1px #e5c27a22)}to{filter:drop-shadow(0 0 9px #e5c27a77)}}
-</style>
-
-<style id="duelis-dark-fantasy-phase3">
-/* PHASE 3 — identidade visual Obsidiana: ameixa, aço e prata lunar */
-:root{--doa-obsidian:#08070d;--doa-plum:#211426;--doa-violet:#9b76b8;--doa-silver:#c8c5d2;--doa-crimson:#a94752}
-html,body{background:#07060c!important}
-body{background:
- radial-gradient(ellipse at 50% -10%,#39213d 0%,transparent 48%),
- radial-gradient(ellipse at 4% 80%,#251b2c 0%,transparent 34%),
- linear-gradient(145deg,#06060b 0%,#111019 52%,#08070c 100%)!important;color:#eee9f2!important}
-.game{background:transparent!important}
-header.top{background:linear-gradient(90deg,#100d17ee,#211728f5,#100d17ee)!important;border:1px solid #705879!important;border-bottom:2px solid #a27cae!important;border-radius:13px!important;padding:7px 13px!important;box-shadow:0 8px 28px #000b,inset 0 1px #ffffff19!important}
-.brand .logo{border:1px solid #c4a4d1!important;background:radial-gradient(circle at 35% 25%,#b08ac0,#38223f 55%,#100d17)!important;box-shadow:0 0 22px #a66cba66,inset 0 0 12px #fff3!important}
-.brand h1{color:#f4eafa!important;text-shadow:0 0 18px #b77ccc88!important;letter-spacing:3px!important}
-.brand .subtitle{color:#b7a6c0!important}
-.topright .iconbtn{border:1px solid #80628b!important;background:linear-gradient(145deg,#30213a,#100d17)!important;color:#ead9f1!important}
-.topright .stage-badge,.topright .turn-pill,.topright .round-pill{border-color:#8b6a99!important;color:#ead9f1!important;background:#1b1424!important}
-.arena .side{position:relative!important;overflow:hidden!important;background:linear-gradient(120deg,#241b2c 0%,#11101a 52%,#1b1424 100%)!important;border:1px solid #82668f!important;border-radius:5px 18px 5px 18px!important;box-shadow:0 12px 28px #000b,inset 0 0 0 1px #c7a3d522,inset 0 1px #fff2!important}
-.arena .side:before{content:"";position:absolute;inset:5px;border:1px solid #80638b66;clip-path:polygon(0 0,22% 0,22% 2%,78% 2%,78% 0,100% 0,100% 100%,0 100%);pointer-events:none}
-.arena .side .avatar{border:2px solid #b795c4!important;box-shadow:0 0 18px #a86bbd55!important}
-.arena .side .name{color:#f2e4f5!important;font-family:Georgia,serif!important;letter-spacing:1.5px!important}
-.arena .side .role{color:#bca9c5!important}
-.arena .side .hpbar{background:#39212c!important;border:1px solid #9b5964!important}
-.arena .side .hpfill{background:linear-gradient(90deg,#7c2639,#e16c78)!important}
-.arena .side .shieldline{color:#d6c1e4!important}
-.arena .side .shieldfill{background:linear-gradient(90deg,#66518d,#b79bdf)!important}
-.arena .board{position:relative!important;isolation:isolate!important;overflow:hidden!important;border:1px solid #a17aa9!important;border-radius:4px 22px 4px 22px!important;background:#100d17!important;box-shadow:0 16px 35px #000d,inset 0 0 0 5px #08070d,inset 0 0 55px #000!important}
-.arena .board:before{content:"";position:absolute;inset:7px;z-index:1;pointer-events:none;border:1px solid #c2a0ca66;border-radius:2px 15px 2px 15px}
-.arena .board:after{content:""!important;position:absolute!important;inset:0!important;z-index:0!important;display:block!important;transform:none!important;border:0!important;border-radius:0!important;background:linear-gradient(180deg,#09070b55,#0c0813a6 80%),url('campo-castelo-epico.png') center 54%/cover!important;box-shadow:inset 0 0 90px #050309!important;pointer-events:none!important}
-.arena .lane{z-index:2!important}
-.arena .lane-label{z-index:3!important;color:#e2cbe8!important;text-shadow:0 2px 8px #000!important;letter-spacing:3px!important}
-.arena .lane .empty{background:#100b18dd!important;border:1px solid #8e6a9b!important;color:#d8c5e1!important;letter-spacing:1.5px!important}
-.arena .unit{border:1px solid #c1a0ca!important;border-radius:5px 14px 5px 14px!important;background:linear-gradient(145deg,#35253b,#0d0b13 75%)!important;box-shadow:0 14px 28px #000d,inset 0 0 0 2px #09070e,inset 0 0 20px #b78bc622!important}
-.arena #enemyLane .unit{border-color:#bd6872!important;background:linear-gradient(145deg,#48212d,#110a12 75%)!important;box-shadow:0 14px 28px #000d,inset 0 0 0 2px #11070d,inset 0 0 20px #d04b5a33!important}
-.arena .unit .uname{background:linear-gradient(90deg,#0c0911,#2a1b32,#0c0911)!important;border:1px solid #9c79a8!important;color:#f4e6f7!important;font-family:Georgia,serif!important}
-.arena #enemyLane .unit .uname{border-color:#a75560!important;background:linear-gradient(90deg,#12090e,#351720,#12090e)!important}
-.arena .unit .ustats{background:#0b0911f5!important;color:#e7d8ec!important;border-top:1px solid #8e6a9b!important}
-.arena .feed{background:linear-gradient(90deg,#100b16,#281a30,#100b16)!important;border:1px solid #8c6998!important;color:#ead9ef!important;box-shadow:0 7px 20px #0009!important}
-.bottom{background:linear-gradient(180deg,#11101a00,#100d17aa)!important;border-top:1px solid #5f4869!important;padding-top:8px!important}
-.handtitle{color:#d9c1e3!important;font-family:Georgia,serif!important;letter-spacing:3px!important}
-#hand.hand{gap:13px!important;padding:13px 13px 14px!important}
-#hand.hand>.card{position:relative!important;isolation:isolate!important;border:2px solid #92749e!important;border-radius:5px 16px 5px 16px!important;background:linear-gradient(145deg,#30243a,#0b0a11 78%)!important;box-shadow:0 15px 30px #000d,inset 0 0 0 3px #0b0910,inset 0 0 0 4px #9e7aa833!important}
-#hand.hand>.card:after{content:"";position:absolute;inset:5px!important;z-index:5!important;border:1px solid #b99ac466!important;border-radius:2px 11px 2px 11px!important;pointer-events:none!important}
-#hand.hand>.card .cardart{inset:0 0 36%!important;filter:saturate(.92) contrast(1.12)!important}
-#hand.hand>.card:before{inset:0 0 35%!important;background:linear-gradient(180deg,#07050a00 45%,#09070de8 100%)!important}
-#hand.hand>.card .cardfooter{height:37%!important;min-height:70px!important;padding:8px 9px!important;background:linear-gradient(180deg,#21172a,#0a0910)!important;border-top:1px solid #9a78a5!important}
-#hand.hand>.card .cardname{font-family:Georgia,serif!important;color:#f1e5f4!important;text-shadow:0 2px 5px #000!important}
-#hand.hand>.card .carddesc{color:#c9bfce!important}
-#hand.hand>.card .cost{background:radial-gradient(circle at 30% 25%,#fff1cf,#a97a42 72%)!important;border:1px solid #f4d8a0!important;color:#26180e!important}
-#hand.hand>.card.spell{border-color:#75b7c8!important;box-shadow:0 15px 30px #000d,0 0 14px #65bfd044,inset 0 0 0 3px #0b0910!important}
-#hand.hand>.card.spell .cardfooter{border-top-color:#75b7c8!important}
-#hand.hand>.card.rarity-legendary{border-color:#e5bd75!important;box-shadow:0 15px 30px #000d,0 0 18px #e2b45b55,inset 0 0 0 3px #0b0910!important}
-#hand.hand>.card.rarity-epic{border-color:#bd8cdb!important}
-#hand.hand>.card.rarity-rare{border-color:#76b9d1!important}
-#hand.hand>.card.rarity-common{border-color:#aaa6b3!important}
-#hand.hand>.card:hover,#hand.hand>.card.previewed{transform:translateY(-19px) scale(1.05)!important;z-index:12!important;box-shadow:0 22px 40px #000f,0 0 25px #bb8bc966!important}
-.battle-wheel{border-color:#b18a65!important;background:radial-gradient(circle at 50% 50%,#39253d 0 37%,#17101f 40% 58%,#59415d 60% 63%,#0d0a12 67% 100%)!important;box-shadow:inset 0 0 0 4px #100b15,inset 0 0 25px #c08bc455,0 0 0 3px #513958,0 0 24px #a76bb955!important}
-.battle-wheel:before{border-color:#d2b2d877!important;box-shadow:0 0 16px #b57acb77,inset 0 0 18px #a66dbb44!important}
-.wheel-energy,.wheel-life{border-color:#c4a0ce!important;background:radial-gradient(circle at 35% 25%,#5a3e64,#160e20 72%)!important;box-shadow:0 0 14px #a86bc777,inset 0 0 12px #c49ad955!important}
-.wheel-life{border-color:#d18b91!important;background:radial-gradient(circle at 35% 25%,#914452,#321321 72%)!important}
-.battle-wheel #endTurn{background:linear-gradient(145deg,#e6d5eb,#9e75ad 62%,#4a2d57)!important;border:2px solid #f4e5f5!important;color:#180e1d!important;text-shadow:0 1px #fff9!important;box-shadow:inset 0 0 0 3px #72517c,0 8px 20px #000d,0 0 22px #b37acb88!important}
-.pile-button,.hud-rail .rail-btn{background:linear-gradient(145deg,#35253d,#0d0a13)!important;border:1px solid #9c7aa7!important;color:#ead8f0!important;box-shadow:inset 0 1px #fff2,0 6px 15px #000b!important}
-#intro .modal{background:linear-gradient(180deg,#1d1427ed,#09070ff5 78%),url('campo-castelo-epico.png') center/cover!important;border-color:#a47db0!important;box-shadow:0 30px 100px #000f,0 0 0 5px #09070e,0 0 55px #a36bb955!important}
-#intro .modal:before{border-color:#b28cbd88!important}
-#intro .modal h2{color:#f3e4f7!important;text-shadow:0 0 25px #b77acb77!important}
-#intro .campaign-level,#intro .quick-guide>div,#intro .campaign-panel{border-color:#80618c!important;background:linear-gradient(145deg,#291d33ee,#100c17ee)!important}
-#intro .campaign-level,#intro .quick-guide b{color:#e6c9ef!important}
-#intro .menu-actions #startBtn{background:linear-gradient(145deg,#e8d6ed,#9d72ad 65%,#56335f)!important;border-color:#f3e4f6!important;color:#1c1021!important}
-@media(max-width:760px){
- .arena .board:after{background-position:center!important}
- #hand.hand{gap:8px!important}
- #hand.hand>.card{border-radius:4px 11px 4px 11px!important}
-}
-</style>
-
-<style id="duelis-avatar-repair-01">
-/* Repair: restore enemy commander portrait sprite after legacy avatar background shorthand */
-.arena>.side:not(.player) .avatar{
+<style id="duelis-preview-layout-recovery">
+/* Layout recovery: explicit placement for the existing battle DOM */
+main.arena{
  display:grid!important;
- background-color:#17101f!important;
- background-image:linear-gradient(#1112,#1112),url('herois-20-retratos.png')!important;
- background-size:auto,auto 400%!important;
- background-position:center,93.1% 33.333%!important;
- background-repeat:no-repeat!important;
- background-origin:border-box!important;
- background-clip:padding-box!important;
- font-size:0!important;
+ grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;
+ grid-template-rows:auto minmax(260px,1fr) auto auto!important;
+ grid-template-areas:none!important;
+ gap:10px!important;
+ min-height:570px!important;
+ align-items:stretch!important;
 }
-.arena>.side.player .avatar{
- background-image:linear-gradient(#1112,#1112),url('herois-20-retratos.png')!important;
- background-size:auto,auto 400%!important;
- background-position:center,0 0!important;
- background-repeat:no-repeat!important;
+main.arena>.side:not(.player){
+ display:grid!important;visibility:visible!important;opacity:1!important;
+ grid-column:1!important;grid-row:1!important;
+ min-width:0!important;min-height:78px!important;height:auto!important;
+}
+main.arena>.side.player{
+ display:grid!important;visibility:visible!important;opacity:1!important;
+ grid-column:2!important;grid-row:1!important;
+ min-width:0!important;min-height:78px!important;height:auto!important;
+}
+main.arena>.board{
+ display:grid!important;visibility:visible!important;opacity:1!important;
+ grid-column:1 / 3!important;grid-row:2!important;
+ min-width:0!important;min-height:260px!important;
+}
+main.arena>.divider{grid-column:1 / 3!important;grid-row:3!important}
+main.arena>.feed{display:block!important;grid-column:1 / 3!important;grid-row:4!important}
+@media(max-width:700px){
+ main.arena{grid-template-columns:minmax(0,1fr)!important;grid-template-rows:auto auto minmax(230px,1fr) auto auto!important;min-height:0!important}
+ main.arena>.side:not(.player){grid-column:1!important;grid-row:1!important}
+ main.arena>.side.player{grid-column:1!important;grid-row:2!important}
+ main.arena>.board{grid-column:1!important;grid-row:3!important;min-height:230px!important}
+ main.arena>.divider{grid-column:1!important;grid-row:4!important}
+ main.arena>.feed{grid-column:1!important;grid-row:5!important}
 }
 </style>
-
 <style id="duelis-dark-palette-only-v3">
-:root{
- --bg:#080d18;--panel:#111b2b;--panel2:#19283d;--line:#8e7048;
- --text:#f1e5cc;--muted:#a9b4c5;--gold:#e4bd77;--red:#d66d70;
- --green:#83bba5;--blue:#83bddb;--shadow:0 12px 30px #0009;
-}
+:root{--bg:#080d18;--panel:#111b2b;--panel2:#19283d;--line:#8e7048;--text:#f1e5cc;--muted:#a9b4c5;--gold:#e4bd77;--red:#d66d70;--green:#83bba5;--blue:#83bddb;--shadow:0 12px 30px #0009}
 html,body{background:#080d18!important;color:#f1e5cc!important}
-body{background:radial-gradient(ellipse at 50% -15%,#243a59 0, #101a2b 42%,#080d18 100%)!important}
-.top,.side,.profile,.enemy-intent,.bottom,.energy-dock,.pass-stack{
- background-color:#111b2b!important;border-color:#8e7048!important;color:#f1e5cc!important;
-}
+body{background:radial-gradient(ellipse at 50% -15%,#243a59 0,#101a2b 42%,#080d18 100%)!important}
+.top,.side,.profile,.enemy-intent,.bottom,.energy-dock,.pass-stack{background-color:#111b2b!important;border-color:#8e7048!important;color:#f1e5cc!important}
 .top{background-image:linear-gradient(100deg,#17253b,#101827 65%,#211a2b)!important}
 .side{background-image:linear-gradient(110deg,#1b2a40,#101a2a 75%,#211b2c)!important}
 .board{background-color:#101a2b!important;border-color:#9a794d!important}
-.board:after{border-color:#d4b47755!important}
 .lane-label{color:#e6d1a7!important;text-shadow:0 2px 5px #000!important}
 .feed{background-color:#101a2a!important;border-color:#8c704b!important;color:#e8d9bd!important}
 .card{background-color:#111b2b!important;border-color:#9baabd!important;color:#f1e5cc!important}
 .card.spell{background-color:#142b3a!important;border-color:#77b7cb!important}
 .cardname{color:#fff0d3!important;text-shadow:0 2px 5px #000!important}
 .carddesc{color:#cbd3df!important}
-.iconbtn,.smallbtn,.pile-button{
- background-color:#17253a!important;border-color:#94764c!important;color:#ead8b8!important;
-}
+.iconbtn,.smallbtn,.pile-button{background-color:#17253a!important;border-color:#94764c!important;color:#ead8b8!important}
 .endturn{background-color:#b78a4d!important;border-color:#f0d69c!important;color:#25180c!important}
 .endturn small{color:#533c22!important}
 .turn-pill,.round-pill,.stage-badge{background-color:#101a2a!important;border-color:#8d7049!important;color:#e8d7b6!important}
