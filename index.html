@@ -987,4 +987,77 @@ header.top:before{content:"";position:absolute;left:0;right:0;bottom:-1px;height
 @keyframes doa-card-rise{from{transform:translateY(0) scale(1)}to{transform:translateY(-17px) scale(1.045)}}
 @keyframes doa-unit-aura{from{filter:drop-shadow(0 0 1px #e5c27a22)}to{filter:drop-shadow(0 0 9px #e5c27a77)}}
 </style>
+
+<style id="duelis-dark-fantasy-phase3">
+/* PHASE 3 — identidade visual Obsidiana: ameixa, aço e prata lunar */
+:root{--doa-obsidian:#08070d;--doa-plum:#211426;--doa-violet:#9b76b8;--doa-silver:#c8c5d2;--doa-crimson:#a94752}
+html,body{background:#07060c!important}
+body{background:
+ radial-gradient(ellipse at 50% -10%,#39213d 0%,transparent 48%),
+ radial-gradient(ellipse at 4% 80%,#251b2c 0%,transparent 34%),
+ linear-gradient(145deg,#06060b 0%,#111019 52%,#08070c 100%)!important;color:#eee9f2!important}
+.game{background:transparent!important}
+header.top{background:linear-gradient(90deg,#100d17ee,#211728f5,#100d17ee)!important;border:1px solid #705879!important;border-bottom:2px solid #a27cae!important;border-radius:13px!important;padding:7px 13px!important;box-shadow:0 8px 28px #000b,inset 0 1px #ffffff19!important}
+.brand .logo{border:1px solid #c4a4d1!important;background:radial-gradient(circle at 35% 25%,#b08ac0,#38223f 55%,#100d17)!important;box-shadow:0 0 22px #a66cba66,inset 0 0 12px #fff3!important}
+.brand h1{color:#f4eafa!important;text-shadow:0 0 18px #b77ccc88!important;letter-spacing:3px!important}
+.brand .subtitle{color:#b7a6c0!important}
+.topright .iconbtn{border:1px solid #80628b!important;background:linear-gradient(145deg,#30213a,#100d17)!important;color:#ead9f1!important}
+.topright .stage-badge,.topright .turn-pill,.topright .round-pill{border-color:#8b6a99!important;color:#ead9f1!important;background:#1b1424!important}
+.arena .side{position:relative!important;overflow:hidden!important;background:linear-gradient(120deg,#241b2c 0%,#11101a 52%,#1b1424 100%)!important;border:1px solid #82668f!important;border-radius:5px 18px 5px 18px!important;box-shadow:0 12px 28px #000b,inset 0 0 0 1px #c7a3d522,inset 0 1px #fff2!important}
+.arena .side:before{content:"";position:absolute;inset:5px;border:1px solid #80638b66;clip-path:polygon(0 0,22% 0,22% 2%,78% 2%,78% 0,100% 0,100% 100%,0 100%);pointer-events:none}
+.arena .side .avatar{border:2px solid #b795c4!important;box-shadow:0 0 18px #a86bbd55!important}
+.arena .side .name{color:#f2e4f5!important;font-family:Georgia,serif!important;letter-spacing:1.5px!important}
+.arena .side .role{color:#bca9c5!important}
+.arena .side .hpbar{background:#39212c!important;border:1px solid #9b5964!important}
+.arena .side .hpfill{background:linear-gradient(90deg,#7c2639,#e16c78)!important}
+.arena .side .shieldline{color:#d6c1e4!important}
+.arena .side .shieldfill{background:linear-gradient(90deg,#66518d,#b79bdf)!important}
+.arena .board{position:relative!important;isolation:isolate!important;overflow:hidden!important;border:1px solid #a17aa9!important;border-radius:4px 22px 4px 22px!important;background:#100d17!important;box-shadow:0 16px 35px #000d,inset 0 0 0 5px #08070d,inset 0 0 55px #000!important}
+.arena .board:before{content:"";position:absolute;inset:7px;z-index:1;pointer-events:none;border:1px solid #c2a0ca66;border-radius:2px 15px 2px 15px}
+.arena .board:after{content:""!important;position:absolute!important;inset:0!important;z-index:0!important;display:block!important;transform:none!important;border:0!important;border-radius:0!important;background:linear-gradient(180deg,#09070b55,#0c0813a6 80%),url('campo-castelo-epico.png') center 54%/cover!important;box-shadow:inset 0 0 90px #050309!important;pointer-events:none!important}
+.arena .lane{z-index:2!important}
+.arena .lane-label{z-index:3!important;color:#e2cbe8!important;text-shadow:0 2px 8px #000!important;letter-spacing:3px!important}
+.arena .lane .empty{background:#100b18dd!important;border:1px solid #8e6a9b!important;color:#d8c5e1!important;letter-spacing:1.5px!important}
+.arena .unit{border:1px solid #c1a0ca!important;border-radius:5px 14px 5px 14px!important;background:linear-gradient(145deg,#35253b,#0d0b13 75%)!important;box-shadow:0 14px 28px #000d,inset 0 0 0 2px #09070e,inset 0 0 20px #b78bc622!important}
+.arena #enemyLane .unit{border-color:#bd6872!important;background:linear-gradient(145deg,#48212d,#110a12 75%)!important;box-shadow:0 14px 28px #000d,inset 0 0 0 2px #11070d,inset 0 0 20px #d04b5a33!important}
+.arena .unit .uname{background:linear-gradient(90deg,#0c0911,#2a1b32,#0c0911)!important;border:1px solid #9c79a8!important;color:#f4e6f7!important;font-family:Georgia,serif!important}
+.arena #enemyLane .unit .uname{border-color:#a75560!important;background:linear-gradient(90deg,#12090e,#351720,#12090e)!important}
+.arena .unit .ustats{background:#0b0911f5!important;color:#e7d8ec!important;border-top:1px solid #8e6a9b!important}
+.arena .feed{background:linear-gradient(90deg,#100b16,#281a30,#100b16)!important;border:1px solid #8c6998!important;color:#ead9ef!important;box-shadow:0 7px 20px #0009!important}
+.bottom{background:linear-gradient(180deg,#11101a00,#100d17aa)!important;border-top:1px solid #5f4869!important;padding-top:8px!important}
+.handtitle{color:#d9c1e3!important;font-family:Georgia,serif!important;letter-spacing:3px!important}
+#hand.hand{gap:13px!important;padding:13px 13px 14px!important}
+#hand.hand>.card{position:relative!important;isolation:isolate!important;border:2px solid #92749e!important;border-radius:5px 16px 5px 16px!important;background:linear-gradient(145deg,#30243a,#0b0a11 78%)!important;box-shadow:0 15px 30px #000d,inset 0 0 0 3px #0b0910,inset 0 0 0 4px #9e7aa833!important}
+#hand.hand>.card:after{content:"";position:absolute;inset:5px!important;z-index:5!important;border:1px solid #b99ac466!important;border-radius:2px 11px 2px 11px!important;pointer-events:none!important}
+#hand.hand>.card .cardart{inset:0 0 36%!important;filter:saturate(.92) contrast(1.12)!important}
+#hand.hand>.card:before{inset:0 0 35%!important;background:linear-gradient(180deg,#07050a00 45%,#09070de8 100%)!important}
+#hand.hand>.card .cardfooter{height:37%!important;min-height:70px!important;padding:8px 9px!important;background:linear-gradient(180deg,#21172a,#0a0910)!important;border-top:1px solid #9a78a5!important}
+#hand.hand>.card .cardname{font-family:Georgia,serif!important;color:#f1e5f4!important;text-shadow:0 2px 5px #000!important}
+#hand.hand>.card .carddesc{color:#c9bfce!important}
+#hand.hand>.card .cost{background:radial-gradient(circle at 30% 25%,#fff1cf,#a97a42 72%)!important;border:1px solid #f4d8a0!important;color:#26180e!important}
+#hand.hand>.card.spell{border-color:#75b7c8!important;box-shadow:0 15px 30px #000d,0 0 14px #65bfd044,inset 0 0 0 3px #0b0910!important}
+#hand.hand>.card.spell .cardfooter{border-top-color:#75b7c8!important}
+#hand.hand>.card.rarity-legendary{border-color:#e5bd75!important;box-shadow:0 15px 30px #000d,0 0 18px #e2b45b55,inset 0 0 0 3px #0b0910!important}
+#hand.hand>.card.rarity-epic{border-color:#bd8cdb!important}
+#hand.hand>.card.rarity-rare{border-color:#76b9d1!important}
+#hand.hand>.card.rarity-common{border-color:#aaa6b3!important}
+#hand.hand>.card:hover,#hand.hand>.card.previewed{transform:translateY(-19px) scale(1.05)!important;z-index:12!important;box-shadow:0 22px 40px #000f,0 0 25px #bb8bc966!important}
+.battle-wheel{border-color:#b18a65!important;background:radial-gradient(circle at 50% 50%,#39253d 0 37%,#17101f 40% 58%,#59415d 60% 63%,#0d0a12 67% 100%)!important;box-shadow:inset 0 0 0 4px #100b15,inset 0 0 25px #c08bc455,0 0 0 3px #513958,0 0 24px #a76bb955!important}
+.battle-wheel:before{border-color:#d2b2d877!important;box-shadow:0 0 16px #b57acb77,inset 0 0 18px #a66dbb44!important}
+.wheel-energy,.wheel-life{border-color:#c4a0ce!important;background:radial-gradient(circle at 35% 25%,#5a3e64,#160e20 72%)!important;box-shadow:0 0 14px #a86bc777,inset 0 0 12px #c49ad955!important}
+.wheel-life{border-color:#d18b91!important;background:radial-gradient(circle at 35% 25%,#914452,#321321 72%)!important}
+.battle-wheel #endTurn{background:linear-gradient(145deg,#e6d5eb,#9e75ad 62%,#4a2d57)!important;border:2px solid #f4e5f5!important;color:#180e1d!important;text-shadow:0 1px #fff9!important;box-shadow:inset 0 0 0 3px #72517c,0 8px 20px #000d,0 0 22px #b37acb88!important}
+.pile-button,.hud-rail .rail-btn{background:linear-gradient(145deg,#35253d,#0d0a13)!important;border:1px solid #9c7aa7!important;color:#ead8f0!important;box-shadow:inset 0 1px #fff2,0 6px 15px #000b!important}
+#intro .modal{background:linear-gradient(180deg,#1d1427ed,#09070ff5 78%),url('campo-castelo-epico.png') center/cover!important;border-color:#a47db0!important;box-shadow:0 30px 100px #000f,0 0 0 5px #09070e,0 0 55px #a36bb955!important}
+#intro .modal:before{border-color:#b28cbd88!important}
+#intro .modal h2{color:#f3e4f7!important;text-shadow:0 0 25px #b77acb77!important}
+#intro .campaign-level,#intro .quick-guide>div,#intro .campaign-panel{border-color:#80618c!important;background:linear-gradient(145deg,#291d33ee,#100c17ee)!important}
+#intro .campaign-level,#intro .quick-guide b{color:#e6c9ef!important}
+#intro .menu-actions #startBtn{background:linear-gradient(145deg,#e8d6ed,#9d72ad 65%,#56335f)!important;border-color:#f3e4f6!important;color:#1c1021!important}
+@media(max-width:760px){
+ .arena .board:after{background-position:center!important}
+ #hand.hand{gap:8px!important}
+ #hand.hand>.card{border-radius:4px 11px 4px 11px!important}
+}
+</style>
 </body></html>
