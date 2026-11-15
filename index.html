@@ -1283,4 +1283,24 @@ body{
  .bottom .endturn small{font-size:8px!important}
 }
 </style>
+
+<style id="duelis-interface-grid-fix">
+.game{grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;
+ grid-template-rows:auto auto minmax(340px,1fr) auto auto!important;
+ grid-template-areas:"top top" "enemy player" "battle battle" "status status" "cards cards"!important}
+.arena{display:contents!important}
+.arena>.side:not(.player){display:grid!important;grid-area:enemy!important;grid-column:1!important;grid-row:2!important}
+.arena>.side.player{display:grid!important;grid-area:player!important;grid-column:2!important;grid-row:2!important}
+.arena>.board{grid-area:battle!important;grid-column:1 / -1!important;grid-row:3!important}
+.arena>.feed{grid-area:status!important;grid-column:1 / -1!important;grid-row:4!important}
+.bottom{grid-area:cards!important;grid-column:1 / -1!important;grid-row:5!important}
+.arena>.side:not(.player) .avatar{background-position:center,100% 0!important}
+.arena>.side.player .avatar{background-position:center,0 0!important}
+@media(max-width:560px){
+ .game{grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;grid-template-areas:"top top" "enemy player" "battle battle" "status status" "cards cards"!important}
+ .arena>.side{min-width:0!important}
+ .arena>.side .profile{gap:6px!important}
+ .arena>.side .avatar{width:36px!important;height:42px!important;min-width:36px!important}
+}
+</style>
 </body></html>
