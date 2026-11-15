@@ -1736,21 +1736,18 @@ html body .game>.bottom>.battle-wheel #endTurn{left:50%!important;top:auto!impor
       }catch(error){console.error(error);if(typeof say==='function')say('Não foi possível abrir o deck. Atualiza a página e tenta novamente.')}
     };
     start.type='button';
+    const previousStart=start.onclick;
     start.onclick=()=>{
       try{
         if(typeof gameStart!=='function')throw new Error('Motor de batalha indisponível');
-        if(typeof game$('startBtn')?.onclick==='function'){
-          const current=game$('startBtn').onclick;
-          if(current!==start.__duelisRecoveryHandler)current.call(start);
-          else gameStart();
-        }else gameStart();
+        if(typeof previousStart==='function')previousStart.call(start);
+        else gameStart();
         if(!S?.started&&(GAME_PROFILES?.player?.deck?.length||0)<6){
           if(typeof gameOpenDeckBuilder==='function')gameOpenDeckBuilder('player');
           if(typeof say==='function')say('O deck precisa de pelo menos 6 cartas. Escolhe as cartas para começar.');
         }
       }catch(error){console.error('Falha ao iniciar:',error);if(typeof say==='function')say('Erro ao iniciar a batalha. Consulta a consola para detalhes.')}
     };
-    start.__duelisRecoveryHandler=start.onclick;
     if(equipment)equipment.onclick=()=>{
       const overlay=byId('rpgEquipmentOverlay');
       if(overlay){overlay.classList.remove('hidden');}
