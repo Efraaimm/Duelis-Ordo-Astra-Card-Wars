@@ -1716,4 +1716,50 @@ html body .game>.bottom>.battle-wheel #endTurn{left:50%!important;top:auto!impor
 })();
 </script>
 
+
+<script id="duelis-menu-controls-recovery-v1">
+(()=>{
+  const byId=id=>document.getElementById(id);
+  function bind(){
+    const intro=byId('intro');
+    const start=byId('startBtn');
+    const deck=byId('openDeckBtn');
+    const equipment=byId('rpgEquipmentOpen');
+    const help=byId('helpBtn');
+    if(!intro||!start||!deck)return;
+    deck.type='button';
+    deck.onclick=()=>{
+      try{
+        if(typeof gameOpenDeckBuilder==='function')gameOpenDeckBuilder('player');
+        else if(typeof gameOpenDeck==='function')gameOpenDeck('player');
+        else throw new Error('Editor de deck indisponível');
+      }catch(error){console.error(error);if(typeof say==='function')say('Não foi possível abrir o deck. Atualiza a página e tenta novamente.')}
+    };
+    start.type='button';
+    start.onclick=()=>{
+      try{
+        if(typeof gameStart!=='function')throw new Error('Motor de batalha indisponível');
+        if(typeof game$('startBtn')?.onclick==='function'){
+          const current=game$('startBtn').onclick;
+          if(current!==start.__duelisRecoveryHandler)current.call(start);
+          else gameStart();
+        }else gameStart();
+        if(!S?.started&&(GAME_PROFILES?.player?.deck?.length||0)<6){
+          if(typeof gameOpenDeckBuilder==='function')gameOpenDeckBuilder('player');
+          if(typeof say==='function')say('O deck precisa de pelo menos 6 cartas. Escolhe as cartas para começar.');
+        }
+      }catch(error){console.error('Falha ao iniciar:',error);if(typeof say==='function')say('Erro ao iniciar a batalha. Consulta a consola para detalhes.')}
+    };
+    start.__duelisRecoveryHandler=start.onclick;
+    if(equipment)equipment.onclick=()=>{
+      const overlay=byId('rpgEquipmentOverlay');
+      if(overlay){overlay.classList.remove('hidden');}
+      else if(typeof say==='function')say('O inventário ainda está a carregar. Atualiza a página.');
+    };
+    if(help)help.onclick=()=>byId('help')?.classList.remove('hidden');
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',bind,{once:true});
+  else bind();
+})();
+</script>
 </body></html>
