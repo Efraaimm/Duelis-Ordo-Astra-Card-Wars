@@ -1,9 +1,9 @@
 <!doctype  html>
 <html  lang="pt-BR">
 <head>
-<meta  charset="utf-8"><meta  name="viewport"  content="width=device-width,initial-scale=1"><meta  name="theme-color"  content="#101810"><style>
-<title>Última  Fronteira  —  Batalha  de  Cartas</title>
-
+<meta  charset="utf-8"><meta  name="viewport"  content="width=device-width,initial-scale=1"><meta  name="theme-color"  content="#101810"><title>DUELIS ORDO ASTRA — CARD WARS</title>
+<meta name="description" content="DUELIS ORDO ASTRA: um jogo de cartas de fantasia sombria, heróis, ordens e batalhas táticas.">
+<style>
 @import  url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Barlow:wght@400;500;600;700;800&display=swap');
 :root{--bg:#101610;--panel:#182119;--panel2:#202a20;--line:#394337;--text:#f2efdf;--muted:#a3aa96;--gold:#e3bd65;--red:#d66d56;--green:#78a875;--blue:#87aec0;--shadow:0  12px  35px  #0008}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse  at  50%  -25%,#425237  0,#1a241a  45%,#0c110d  100%);color:var(--text);font-family:Barlow,Arial,sans-serif;min-height:100vh}button{font:inherit;color:inherit;cursor:pointer}.game{max-width:1280px;margin:auto;padding:18px  26px  22px;min-height:100vh;display:flex;flex-direction:column;gap:13px}.top{display:flex;align-items:center;justify-content:space-between;border-bottom:1px  solid  #65705266;padding:0  3px  12px}.brand{display:flex;align-items:center;gap:11px}.logo{width:42px;height:42px;border:1px  solid  var(--gold);color:var(--gold);display:grid;place-items:center;font-size:23px;transform:rotate(45deg);border-radius:6px}.logo  span{transform:rotate(-45deg)}h1{font:800  25px  'Barlow  Condensed',sans-serif;letter-spacing:2px;margin:0}.subtitle{font-size:10px;color:var(--muted);letter-spacing:2.1px;text-transform:uppercase}.topright{display:flex;align-items:center;gap:10px}.turn-pill,.round-pill{border:1px  solid  var(--line);border-radius:99px;padding:7px  12px;font-size:11px;letter-spacing:.7px;text-transform:uppercase;color:#c4c8b9}.round-pill  b{color:var(--gold)}.iconbtn,.smallbtn{background:#20291f;border:1px  solid  var(--line);border-radius:8px;padding:8px  11px;font-size:12px}.iconbtn:hover,.smallbtn:hover{border-color:var(--gold)}.arena{display:grid;gap:11px;flex:1;grid-template-rows:auto  1fr  auto  1fr  auto;min-height:570px}.side{display:grid;grid-template-columns:minmax(210px,1fr)  auto;gap:14px;align-items:center;padding:12px  16px;background:linear-gradient(105deg,#222c22,#182019);border:1px  solid  #46513f;border-radius:11px;box-shadow:0  8px  25px  #0003}.side.player{grid-template-columns:auto  minmax(210px,1fr)}.profile{display:flex;align-items:center;gap:12px}.player  .profile{order:2;justify-content:flex-end}.avatar{width:43px;height:43px;border-radius:50%;display:grid;place-items:center;background:#34402e;border:1px  solid  #6c7c58;font-size:20px}.player  .avatar{background:#49342d;border-color:#95624b}.name{font:700  19px  'Barlow  Condensed',sans-serif;letter-spacing:1px}.role{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1.4px}.health{display:flex;align-items:center;gap:7px;margin-top:5px}.heart{color:var(--red)}.hpbar{width:128px;height:6px;background:#111711;border-radius:8px;overflow:hidden}.hpfill{height:100%;background:linear-gradient(90deg,#b64736,#e28259);transition:width  .35s}.hpnum{font-size:12px;font-weight:700}.resources{display:flex;align-items:center;gap:8px}.energy{display:flex;align-items:center;gap:5px;font-size:12px;color:#b8c7cf}.gem{width:18px;height:21px;background:linear-gradient(140deg,#d5f1ec,#75aab8  55%,#537689);clip-path:polygon(50%  0,100%  30%,80%  100%,20%  100%,0  30%);filter:drop-shadow(0  2px  3px  #000)}.deck{font-size:11px;color:var(--muted);border-left:1px  solid  #46513f;padding-left:12px}.deck  b{color:var(--text)}.board{position:relative;display:grid;grid-template-columns:1fr  1fr;gap:14px;padding:8px  15px;align-items:center;background:linear-gradient(180deg,#2936299c,#152019aa);border:1px  solid  #394b37;border-radius:11px;min-height:146px}.board:after{content:'';position:absolute;left:5%;right:5%;top:50%;border-top:1px  dashed  #89947c44}.lane{display:flex;justify-content:center;align-items:center;gap:9px;min-height:112px;z-index:1}.lane-label{position:absolute;font:700  10px  'Barlow  Condensed',sans-serif;text-transform:uppercase;letter-spacing:2px;color:#d3d8be66;left:13px;top:8px}.playerlane  .lane-label{top:auto;bottom:8px}.unit{position:relative;width:112px;height:106px;flex:none;border-radius:9px;border:1px  solid  #a3a47d;background:linear-gradient(155deg,#535940,#29352a  60%,#202a22);box-shadow:0  6px  14px  #0007;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:7px  8px;animation:enter  .25s  ease-out}.unit.enemy{background:linear-gradient(155deg,#674638,#3c3029  60%,#28251f);border-color:#a87959}.unit.ready:after{content:'';position:absolute;inset:-3px;border:1px  solid  #e2c765aa;border-radius:11px;pointer-events:none}.unit  .uicon{font-size:27px;line-height:1}.unit  .uname{font:700  13px  'Barlow  Condensed',sans-serif;text-align:center;line-height:1}.unit  .ustats{display:flex;justify-content:space-between;width:100%;font-weight:800;font-size:13px}.atk{color:#f1ad71}.def{color:#a8d4d9}.unit  .exhaust{position:absolute;inset:0;background:#090c0aa8;border-radius:8px;display:none}.unit.tired  .exhaust{display:block}.empty{color:#a0a89177;font-size:11px;text-transform:uppercase;letter-spacing:1.5px}.divider{display:flex;align-items:center;gap:12px;color:#abb39e;font-size:10px;letter-spacing:2px;text-transform:uppercase}.divider:before,.divider:after{content:'';height:1px;background:#56634b66;flex:1}.feed{min-height:38px;display:flex;align-items:center;justify-content:center;text-align:center;font-size:12px;color:#e1d9bc;background:#11181291;border:1px  solid  #374434;border-radius:8px;padding:8px  14px}.bottom{display:grid;grid-template-columns:1fr  auto;gap:14px;align-items:end}.handwrap{min-width:0}.handtitle{font:700  12px  'Barlow  Condensed',sans-serif;letter-spacing:1.8px;text-transform:uppercase;color:#b5bcaa;margin:0  0  8px  4px;display:flex;justify-content:space-between}.hand{display:flex;gap:10px;min-height:164px;overflow-x:auto;padding:3px  4px  10px}.card{position:relative;width:124px;min-width:124px;height:157px;border:1px  solid  #71795a;border-radius:9px;background:linear-gradient(150deg,#48513b,#222d23  68%,#1a211c);box-shadow:0  7px  15px  #0005;display:flex;flex-direction:column;align-items:center;padding:8px  9px;transition:transform  .16s,border-color  .16s,opacity  .16s;text-align:center;cursor:pointer}.card:hover{transform:translateY(-7px);border-color:var(--gold)}.card.disabled{opacity:.48;filter:grayscale(.5);cursor:not-allowed}.card.disabled:hover{transform:none}.card.spell{background:linear-gradient(150deg,#3c5961,#243538  68%,#1d292b);border-color:#7195a0}.cost{position:absolute;top:5px;left:6px;background:#8daeb1;color:#101818;font:800  15px  'Barlow  Condensed',sans-serif;width:22px;height:22px;border-radius:50%;display:grid;place-items:center}.cardicon{font-size:35px;line-height:1;margin:10px  0  5px}.cardname{font:700  16px  'Barlow  Condensed',sans-serif;line-height:1.05;min-height:29px;display:grid;place-items:center}.carddesc{font-size:10px;line-height:1.25;color:#c5cbb9;margin:4px  0}.cardstats{margin-top:auto;width:100%;display:flex;justify-content:space-between;font-size:12px;font-weight:800}.endturn{width:132px;height:55px;border:1px  solid  #e0bf6d;border-radius:9px;background:linear-gradient(145deg,#b88c42,#83612c);box-shadow:0  5px  15px  #0005;font:800  16px  'Barlow  Condensed',sans-serif;letter-spacing:1px;text-transform:uppercase;color:#fff5da}.endturn:hover{filter:brightness(1.14)}.endturn:disabled{opacity:.55;cursor:default}.endturn  small{display:block;font:500  9px  Barlow,sans-serif;letter-spacing:1px;margin-top:2px}.overlay{position:fixed;inset:0;background:#08100dd9;display:grid;place-items:center;z-index:5;padding:20px}.modal{max-width:520px;width:100%;padding:30px;background:linear-gradient(145deg,#293629,#161e18);border:1px  solid  #7c815f;border-radius:14px;box-shadow:var(--shadow);text-align:center}.modal  .big{font-size:44px}.modal  h2{font:800  32px  'Barlow  Condensed',sans-serif;letter-spacing:2px;margin:6px  0}.modal  p{color:#c5cbbb;line-height:1.55}.modal  button{border:1px  solid  var(--gold);background:#9b7739;padding:12px  21px;border-radius:8px;font-weight:800;margin-top:10px}.hidden{display:none!important}.log{position:fixed;right:20px;top:72px;width:260px;background:#151d17;border:1px  solid  #45503e;border-radius:9px;padding:12px;z-index:3;box-shadow:var(--shadow);font-size:11px;line-height:1.6}.log  h3{font:700  14px  'Barlow  Condensed';margin:0  0  6px;text-transform:uppercase;letter-spacing:1px}.log  div{border-top:1px  solid  #ffffff12;padding:4px  0;color:#bec4b4}.help{position:fixed;inset:0;background:#08100ddd;z-index:7;display:grid;place-items:center;padding:16px}.helpbox{max-width:520px;background:#1a241c;border:1px  solid  #6f7757;border-radius:13px;padding:24px}.helpbox  h2{font:800  27px  'Barlow  Condensed';margin:0  0  10px}.helpbox  p,.helpbox  li{font-size:13px;color:#d1d5c6;line-height:1.55}.helpbox  button{background:#927139;border:1px  solid  #d4b15e;border-radius:7px;padding:9px  18px;margin-top:7px}.toast{position:fixed;top:80px;left:50%;transform:translateX(-50%);background:#222a20;border:1px  solid  var(--gold);border-radius:8px;padding:10px  16px;font-size:13px;z-index:9;box-shadow:var(--shadow);animation:fade  2.3s  forwards}@keyframes  enter{from{transform:translateY(9px);opacity:0}to{transform:translateY(0);opacity:1}}@keyframes  fade{0%,80%{opacity:1}100%{opacity:0}}@media(max-width:700px){.game{padding:12px;gap:9px}.top{align-items:flex-start}.subtitle{display:none}.turn-pill{display:none}.arena{min-height:520px;grid-template-rows:auto  1fr  auto  1fr  auto}.side{padding:9px  11px;grid-template-columns:1fr  auto;gap:6px}.side.player{grid-template-columns:auto  1fr}.name{font-size:16px}.avatar{width:36px;height:36px}.hpbar{width:75px}.deck{font-size:10px;padding-left:7px}.resources{gap:5px}.board{padding:6px;gap:5px;min-height:128px}.lane{gap:5px;min-height:100px}.unit{width:min(27vw,96px);height:91px;padding:5px}.unit  .uicon{font-size:23px}.unit  .uname{font-size:11px}.hand{gap:7px;min-height:147px}.card{width:105px;min-width:105px;height:142px}.cardicon{font-size:30px}.carddesc{font-size:9px}.cardname{font-size:14px}.bottom{grid-template-columns:1fr  auto;gap:7px}.endturn{width:91px;height:49px;font-size:14px}.feed{font-size:10px;min-height:34px}.round-pill{padding:7px}.brand  h1{font-size:20px}.logo{width:36px;height:36px}}
 
@@ -392,7 +392,122 @@ body:not(.mobile-landscape-preview) .game{overflow:hidden}
 @media(max-width:850px){.game{padding:5px 8px 7px!important;grid-template-rows:40px minmax(0,1fr) 220px!important}.top{height:38px!important;min-height:38px!important}.arena{grid-template-rows:66px minmax(0,1fr)!important}.arena .side{height:64px!important;min-height:64px!important}.arena .side .avatar{width:42px!important;height:42px!important}}
 @media(max-width:600px){.game{padding:4px!important;grid-template-rows:36px minmax(0,1fr) 204px!important}.top{height:34px!important;min-height:34px!important}.arena{grid-template-columns:minmax(0,1fr)!important;grid-template-rows:60px 60px minmax(0,1fr)!important}.arena .side.player{grid-column:1!important;grid-row:1!important}.arena .side:not(.player){grid-column:1!important;grid-row:2!important}.arena .board{grid-column:1!important;grid-row:3!important}.arena .side{height:58px!important;min-height:58px!important}.arena .side .avatar{width:36px!important;height:36px!important}.bottom{grid-template-columns:50px minmax(0,1fr) 54px!important}#hand.hand{height:184px!important;min-height:184px!important}#hand.hand>.card{height:clamp(132px,19vh,160px)!important}}
 .modal .campaign-panel{margin:12px 0;padding:12px;border:1px solid #c99e50;border-radius:8px;background:linear-gradient(120deg,#102443,#09152a);text-align:left}.campaign-panel .campaign-meta{display:flex;justify-content:space-between;align-items:center;gap:8px;color:#ffe298;font-size:12px;font-weight:800}.campaign-panel .campaign-summary{margin-top:7px;color:#c6d2e2;font-size:11px;line-height:1.4}.campaign-panel label{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:10px;color:#ecd99e;font-size:11px}.campaign-panel select{max-width:170px;padding:7px 9px;border:1px solid #98713b;border-radius:6px;background:#091329;color:#fff0c5}.modal .menu-actions{display:flex;justify-content:center;flex-wrap:wrap;gap:8px}.modal .menu-actions button{margin-top:6px}.modal .menu-actions #startBtn{min-width:200px;background:linear-gradient(145deg,#e6aa42,#a75020);border-color:#ffe09a}
-</style><style>.campaign-level{display:inline-block;margin:0 auto 6px;padding:5px 10px;border:1px solid #c89f42;border-radius:99px;background:#09172ccc;color:#ffe6a0;font-size:10px;font-weight:800;letter-spacing:1px}.campaign-level b{font-size:14px;color:#fff}</style></head>
+</style><style>.campaign-level{display:inline-block;margin:0 auto 6px;padding:5px 10px;border:1px solid #c89f42;border-radius:99px;background:#09172ccc;color:#ffe6a0;font-size:10px;font-weight:800;letter-spacing:1px}.campaign-level b{font-size:14px;color:#fff}</style>
+<style id="duelis-dark-fantasy-phase1">
+:root{
+  color-scheme:dark;
+  --bg:#080a10;--panel:#11151f;--panel2:#191e2b;--line:#34394a;
+  --text:#f3eee4;--muted:#a8a6ad;--gold:#d7ad62;--red:#b95750;
+  --green:#829a78;--blue:#7f9db8;--shadow:0 18px 55px #000b;
+}
+html{background:#080a10;scroll-behavior:smooth}
+body{
+  background:
+    radial-gradient(ellipse at 50% -18%,#3a2b2a 0,transparent 42%),
+    radial-gradient(ellipse at 12% 55%,#1c2332 0,transparent 38%),
+    linear-gradient(145deg,#090b12 0%,#11131d 52%,#080a10 100%);
+  color:var(--text);
+}
+body:before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;opacity:.22;
+  background-image:radial-gradient(#c6a66a 0.55px,transparent .8px);
+  background-size:23px 23px;mask-image:linear-gradient(to bottom,#000,transparent 80%);
+}
+.game{max-width:1380px;padding:22px clamp(12px,2.5vw,34px) 28px;gap:16px}
+.top{border-bottom:1px solid #b18a4a55;padding-bottom:15px}
+.logo{background:linear-gradient(145deg,#30221f,#11151f);border-color:#d7ad62;color:#f1cf8c;box-shadow:0 0 24px #d7ad6222,inset 0 0 12px #d7ad6218}
+h1,.name,.unit .uname,.cardname,.modal h2,.helpbox h2{color:#f5ead6;text-shadow:0 2px 12px #0009}
+.subtitle,.role,.deck,.handtitle{color:#b5ad9f}
+.turn-pill,.round-pill,.iconbtn,.smallbtn,.pile-button{
+  background:linear-gradient(145deg,#202330,#11151f);border:1px solid #555064;color:#e9dfce;
+  box-shadow:inset 0 1px #ffffff0c,0 5px 16px #0004;transition:transform .18s,border-color .18s,filter .18s;
+}
+.iconbtn:hover,.smallbtn:hover,.pile-button:hover{border-color:var(--gold);filter:brightness(1.12);transform:translateY(-1px)}
+.arena{gap:13px}
+.side{
+  background:linear-gradient(110deg,#211f27ee,#121722f2 70%,#171923);
+  border:1px solid #65534488;border-radius:13px;box-shadow:0 10px 28px #0006,inset 0 1px #ffffff0b;
+}
+.avatar{background:radial-gradient(circle at 35% 25%,#6c5842,#252532 68%);border-color:#b18a5e;box-shadow:0 0 18px #d7ad6222}
+.player .avatar{background:radial-gradient(circle at 35% 25%,#6e393b,#25202a 68%);border-color:#b96b63}
+.hpbar,.shieldbar{background:#090b11;box-shadow:inset 0 1px 4px #000}
+.board{
+  background:
+    radial-gradient(ellipse at center,#27303b88 0,transparent 68%),
+    linear-gradient(180deg,#111a24ed,#0c1119f2);
+  border:1px solid #5b5a5c;border-radius:14px;
+  box-shadow:inset 0 0 45px #0007,0 12px 28px #0005;
+}
+.board:after{border-color:#c1a36b40}
+.lane-label{color:#d9c49b88}
+.divider{color:#c2ad87}
+.divider:before,.divider:after{background:linear-gradient(90deg,transparent,#8c7655aa,transparent)}
+.feed{background:linear-gradient(90deg,#11151ddd,#24202aee,#11151ddd);border-color:#63523e;color:#f0dfbf;box-shadow:inset 0 1px #ffffff0a}
+.unit{
+  background:linear-gradient(155deg,#47404a,#242632 62%,#151923)!important;
+  border:1px solid #c0a06b!important;border-radius:11px;
+  box-shadow:0 9px 20px #0009,inset 0 1px #ffffff18;
+}
+.unit.enemy{background:linear-gradient(155deg,#633b3d,#30232b 65%,#17151e)!important;border-color:#b96a5e!important}
+.unit.ready:after{border-color:#f1cf82;box-shadow:0 0 18px #e5bd6b55}
+.card,.collection-card{
+  background:linear-gradient(155deg,#38313a 0%,#22232e 54%,#121722 100%);
+  border:1px solid #9b8058;border-radius:12px;
+  box-shadow:0 10px 22px #0008,inset 0 1px #ffffff18;
+}
+.card:hover,.card.previewed{border-color:#f0cf8a;box-shadow:0 16px 30px #000b,0 0 22px #d7ad6233}
+.card.spell{background:linear-gradient(155deg,#293d4a,#1b2936 60%,#111923);border-color:#7296a7}
+.card.disabled{filter:grayscale(.55) brightness(.72)}
+.cardname{letter-spacing:.3px}
+.carddesc{color:#d1c8ba}
+.cost{background:linear-gradient(145deg,#f0d99e,#a77a3e);color:#20170f;box-shadow:0 2px 8px #0008}
+.endturn{
+  background:linear-gradient(145deg,#bd914b,#76502b);border:1px solid #f0d18b;color:#fff3d8;
+  box-shadow:0 8px 20px #0007,inset 0 1px #ffffff55;
+}
+.endturn:hover{filter:brightness(1.16);transform:translateY(-2px)}
+.overlay,.help{background:#05070ce8;backdrop-filter:blur(9px)}
+.modal,.helpbox{
+  background:
+    radial-gradient(ellipse at 50% 0,#4b3432 0,transparent 58%),
+    linear-gradient(145deg,#20212b,#10141e 72%);
+  border:1px solid #a18456;border-radius:18px;
+  box-shadow:0 25px 80px #000d,inset 0 1px #ffffff18;
+}
+.modal .big{filter:drop-shadow(0 5px 14px #d7ad6255)}
+.modal h2,.helpbox h2{letter-spacing:2.2px}
+.modal p,.helpbox p,.helpbox li{color:#d0c8bb}
+.modal button,.helpbox button,#startBtn,#againBtn{
+  background:linear-gradient(145deg,#c49a55,#79512e);border:1px solid #f0d18b;
+  color:#fff4dd;border-radius:9px;box-shadow:0 7px 18px #0007,inset 0 1px #ffffff45;
+  transition:filter .18s,transform .18s;
+}
+.modal button:hover,.helpbox button:hover,#startBtn:hover,#againBtn:hover{filter:brightness(1.15);transform:translateY(-1px)}
+select,input[type="text"],input:not([type]){
+  background:#111722;color:#f3eee4;border:1px solid #665943;border-radius:8px;padding:9px;
+}
+input[type="checkbox"]{accent-color:#d7ad62}
+.log{background:#10151fF2;border-color:#766044;box-shadow:var(--shadow);backdrop-filter:blur(8px)}
+.log h3{color:#e6c98f}
+.log div{border-color:#ffffff16;color:#d0c8bb}
+.toast{background:#1d202a;border-color:#d7ad62;color:#f4e8d1;box-shadow:0 10px 30px #0009}
+.quick-guide>div{background:#171d28;border:1px solid #4d4650;border-radius:9px}
+.quick-guide b{color:#e4c48a}
+.campaign-level,.campaign-meta,.route-caption{color:#d9b878}
+:focus-visible{outline:2px solid #f0cf8a!important;outline-offset:3px}
+button:disabled{filter:grayscale(.35)}
+@media(max-width:760px){
+  .game{padding:12px 9px 18px;gap:11px}
+  .top{gap:8px;flex-wrap:wrap}
+  .board{border-radius:10px;padding:7px 6px}
+  .side{padding:9px 10px}
+  .modal,.helpbox{max-height:88vh;overflow:auto;padding:22px 18px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
+</style>
+</head>
 <body><div  class="game"><header  class="top"><div  class="brand"><div  class="logo"><span>⚔</span></div><div><h1>DUELIS  ORDO  ASTRA</h1><div  class="subtitle">DUELO  TÁTICO  DE  HERÓIS  ·  CARTAS  E  MAGIA</div></div></div><div  class="topright"><span  class="turn-pill"  id="turnLabel">Sua  vez</span><span  class="stage-badge">FASE  <b  id="stageLabel">1</b></span><span  class="round-pill">TURNO  <b  id="round">1</b></span><button  class="iconbtn"  id="deckBtn"  title="Coleção  e  deck">🃏</button><button  class="iconbtn"  id="logBtn"  title="Histórico">☰</button><button  class="iconbtn"  id="helpBtn"  title="Regras">📜</button><button class="iconbtn" id="mobilePreviewBtn" title="Pré-visualizar modo horizontal" onclick="document.body.classList.toggle('mobile-landscape-preview');window.scrollTo(0,0)">↔</button><button  class="iconbtn"  id="settingsBtn"  title="Definições">⚙</button><button  class="iconbtn"  id="restartBtn"  title="Recomeçar">↻</button></div></header>
 <nav  class="hud-rail"  aria-label="Atalhos  de  batalha"><button  class="rail-btn"  title="Coleção  e  deck"  onclick="document.getElementById('deckBtn').click()">▤</button><button  class="rail-btn"  title="Manual  de  batalha"  onclick="document.getElementById('helpBtn').click()">⚔</button><button  class="rail-btn"  title="Relatório  de  combate"  onclick="document.getElementById('logBtn').click()">✦</button><button  class="rail-btn"  title="Definições"  onclick="document.getElementById('settingsBtn').click()">♜</button></nav><main  class="arena"><section  class="side"><div  class="profile"><div  class="avatar"  aria-label="Xal'Vek  Azure"></div><div><div  class="name">XAL'VEK  AZURE</div><div  class="role">Suserano  do  Véu</div><div  class="health"><span  class="heart">♥</span><span  class="hp-label">PV</span><div  class="hpbar"><div  class="hpfill"  id="enemyBar"></div></div><span  class="hpnum"  id="enemyHp">30</span></div><div  class="shieldline"><span>🛡  Escudo</span><div  class="shieldbar"><div  class="shieldfill"  id="enemyShieldBar"></div></div><b  id="enemyShield">4</b></div></div></div><div  class="enemy-intent"  id="enemyIntent">⚔️  Aguardando</div><div  class="resources"><span  class="energy"><i  class="gem"></i><b  id="enemyEnergy">1/1</b></span><span  class="deck">BARALHO  <b  id="enemyDeck">46</b></span><span  class="deck">DESCARTE  <b  id="enemyDiscard">0</b></span></div></section>
 <section  class="board"><div  class="lane-label">Exército  sombrio</div><div  class="lane"  id="enemyLane"></div><div  class="lane  playerlane"  id="playerLane"></div><div  class="lane-label  playerlane">Sua  irmandade</div></section>
