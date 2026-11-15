@@ -1757,4 +1757,73 @@ html body .game > .bottom > .battle-wheel{
   html body .game > .bottom > .pass-stack .pile-button{width:74px!important;min-width:74px!important;max-width:74px!important}
 }
 </style>
+
+<style id="duelis-mana-wheel-visibility-fix">
+/* Mana legível: o cristal e o valor ficam acima do botão, sem sobreposição. */
+@media (min-width:851px){
+ html body .game{grid-template-rows:104px minmax(430px,1fr) 270px!important}
+ html body .game>header.top{height:104px!important;min-height:104px!important;padding:8px 14px!important}
+ html body .game>header.top>.brand{top:5px!important;gap:3px!important}
+ html body .game>header.top>.brand>.logo{width:28px!important;height:28px!important;min-width:28px!important;flex-basis:28px!important;font-size:16px!important}
+ html body .game>header.top>.brand h1{font-size:20px!important;line-height:1.2!important;padding-bottom:1px!important}
+ html body .game>header.top>.brand .subtitle{font-size:7px!important;line-height:1.5!important;margin-top:2px!important;display:block!important;overflow:visible!important}
+ html body .game>.bottom{grid-template-columns:76px minmax(0,1fr) 116px 220px!important}
+ html body .game>.bottom>.pass-stack .pile-button{width:108px!important;min-width:108px!important;max-width:108px!important}
+}
+html body .game>.bottom>.battle-wheel{
+ overflow:visible!important;isolation:isolate!important;
+}
+html body .game>.bottom>.battle-wheel .wheel-energy{
+ left:14px!important;top:12px!important;
+ width:70px!important;height:66px!important;
+ gap:0!important;overflow:visible!important;
+}
+html body .game>.bottom>.battle-wheel .wheel-energy .mana-title{
+ top:-5px!important;left:50%!important;transform:translateX(-50%)!important;
+ z-index:3!important;font-size:7px!important;line-height:1!important;
+ padding:2px 6px!important;white-space:nowrap!important;
+}
+html body .game>.bottom>.battle-wheel .wheel-energy .energy{
+ display:flex!important;flex-direction:column!important;
+ align-items:center!important;justify-content:center!important;
+ gap:0!important;width:64px!important;height:61px!important;
+ min-width:64px!important;min-height:61px!important;
+ padding:2px!important;border-width:2px!important;
+ border-radius:14px!important;overflow:visible!important;
+ font-size:11px!important;line-height:1.1!important;
+}
+html body .game>.bottom>.battle-wheel .wheel-energy .energy .gem{
+ display:block!important;width:23px!important;height:27px!important;
+ min-height:0!important;margin:0 auto 1px!important;
+}
+html body .game>.bottom>.battle-wheel .wheel-life{
+ right:13px!important;top:12px!important;
+ width:70px!important;height:70px!important;padding:4px!important;
+}
+html body .game>.bottom>.battle-wheel .wheel-life .health{
+ grid-template-columns:17px auto!important;grid-template-rows:18px 6px!important;
+}
+html body .game>.bottom>.battle-wheel .wheel-life .heart .hud-icon{width:16px!important;height:16px!important}
+html body .game>.bottom>.battle-wheel .wheel-life .hpnum{font-size:12px!important}
+html body .game>.bottom>.battle-wheel .wheel-life .hpbar{width:47px!important;height:5px!important}
+html body .game>.bottom>.battle-wheel #endTurn{
+ left:50%!important;bottom:13px!important;top:auto!important;
+ transform:translateX(-50%)!important;
+ width:146px!important;height:49px!important;
+ min-height:49px!important;padding:4px 8px!important;
+ z-index:5!important;line-height:1!important;
+}
+html body .game>.bottom>.battle-wheel #endTurn:hover{transform:translateX(-50%) translateY(-1px)!important}
+@media(max-width:850px){
+ html body .game>.bottom{grid-template-columns:62px minmax(0,1fr) 88px 154px!important}
+ html body .game>.bottom>.pass-stack .pile-button{width:84px!important;min-width:84px!important;max-width:84px!important}
+ html body .game>.bottom>.battle-wheel .wheel-energy{left:9px!important;top:9px!important;transform:scale(.82)!important;transform-origin:top left!important}
+ html body .game>.bottom>.battle-wheel .wheel-life{right:9px!important;top:9px!important;transform:scale(.82)!important;transform-origin:top right!important}
+ html body .game>.bottom>.battle-wheel #endTurn{width:120px!important;height:42px!important;bottom:10px!important}
+}
+@media(max-width:600px){
+ html body .game>.bottom{grid-template-columns:45px minmax(0,1fr) 65px 122px!important}
+ html body .game>.bottom>.pass-stack .pile-button{width:62px!important;min-width:62px!important;max-width:62px!important}
+}
+</style>
 </body></html>
