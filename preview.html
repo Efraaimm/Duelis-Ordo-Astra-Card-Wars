@@ -1584,4 +1584,35 @@ html body .game > .bottom > .battle-wheel{
   html body .game > .bottom > .battle-wheel{width:100px!important;height:100px!important}
 }
 </style>
+
+<script id="duelis-wheel-restore">
+/* Reconstrói a HUD circular a partir dos controlos existentes, sem duplicar IDs. */
+(()=>{
+  const bottom=document.querySelector('.game > .bottom');
+  if(!bottom || bottom.querySelector('.battle-wheel')) return;
+  const energyDock=bottom.querySelector('.energy-dock');
+  const passStack=bottom.querySelector('.pass-stack');
+  const health=document.querySelector('.arena > .side.player .health');
+  const manaTitle=energyDock?.querySelector('.mana-title');
+  const energy=energyDock?.querySelector('.energy');
+  const endTurn=passStack?.querySelector('#endTurn');
+  if(!energyDock || !passStack || !health || !manaTitle || !energy || !endTurn) return;
+
+  const wheel=document.createElement('div');
+  wheel.className='battle-wheel';
+  wheel.setAttribute('role','group');
+  wheel.setAttribute('aria-label','Painel de comando da batalha');
+
+  const energySlot=document.createElement('div');
+  energySlot.className='wheel-energy';
+  energySlot.append(manaTitle,energy);
+
+  const lifeSlot=document.createElement('div');
+  lifeSlot.className='wheel-life';
+  lifeSlot.append(health);
+
+  wheel.append(energySlot,lifeSlot,endTurn);
+  bottom.append(wheel);
+})();
+</script>
 </body></html>
