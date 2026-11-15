@@ -1467,4 +1467,82 @@ html body .game>.bottom>.battle-wheel #endTurn{left:50%!important;top:auto!impor
   else ensurePanel();
 })();
 </script>
+
+<script id="duelis-rpg-equipment-v1">
+(()=>{
+  'use strict';
+  const load=gameLoadProfile,save=gameSaveProfile;
+  const catalog=[
+    {id:'iron_blade',slot:'weapon',name:'Lâmina do Guardião',icon:'⚔️',cost:50,desc:'+2 ataque às unidades convocadas',attack:2},
+    {id:'warden_armor',slot:'armor',name:'Armadura do Bastião',icon:'🛡️',cost:60,desc:'+6 vida máxima no início da batalha',health:6},
+    {id:'mana_rune',slot:'relic',name:'Runa de Éter',icon:'✧',cost:70,desc:'+1 energia inicial por batalha',energy:1}
+  ];
+  const slots=['weapon','armor','relic'];
+  const slotNames={weapon:'ARMA',armor:'ARMADURA',relic:'RELÍQUIA'};
+  const normalize=raw=>{
+    const g=raw&&typeof raw==='object'?raw:{};
+    const owned=Array.isArray(g.owned)?[...new Set(g.owned.filter(id=>catalog.some(x=>x.id===id)))]:[];
+    const equipped={};
+    for(const slot of slots){const id=g.equipped?.[slot];equipped[slot]=owned.includes(id)&&catalog.some(x=>x.id===id&&x.slot===slot)?id:null}
+    return{owned,equipped};
+  };
+  gameLoadProfile=function(side){const p=load(side);p.gear=normalize(p.gear);return p};
+  gameSaveProfile=function(side){const p=GAME_PROFILES?.[side];if(p)p.gear=normalize(p.gear);return save(side)};
+  function render(){
+    const p=GAME_PROFILES?.player,host=document.querySelector('#intro .campaign-panel');
+    if(!p||!host)return;
+    p.gear=normalize(p.gear);
+    let panel=document.getElementById('rpgEquipmentPanel');
+    if(!panel){panel=document.createElement('section');panel.id='rpgEquipmentPanel';panel.className='rpg-equipment-panel';document.getElementById('rpgProgressPanel')?.after(panel)}
+    const g=p.gear;
+    panel.innerHTML='<div class="gear-heading"><span>ARSENAL DO CAMPEÃO</span><b>INVENTÁRIO · '+g.owned.length+'/3</b></div>'+
+      '<div class="gear-slots">'+slots.map(slot=>{
+        const item=catalog.find(x=>x.id===g.equipped[slot]);
+        return '<div class="gear-slot"><small>'+slotNames[slot]+'</small><b>'+(item?item.icon+' '+item.name:'Vazio')+'</b><span>'+(item?item.desc:'Nenhum equipamento')+'</span></div>';
+      }).join('')+'</div>'+
+      '<div class="gear-shop">'+catalog.map(item=>{
+        const owned=g.owned.includes(item.id),equipped=g.equipped[item.slot]===item.id;
+        return '<article class="gear-item"><div class="gear-item-icon">'+item.icon+'</div><div class="gear-item-info"><b>'+item.name+'</b><small>'+item.desc+'</small><small>🪙 '+item.cost+' ouro</small></div>'+
+          (equipped?'<button disabled>Equipado</button>':owned?'<button data-gear-equip="'+item.id+'">Equipar</button>':'<button data-gear-buy="'+item.id+'" '+(p.rpg.gold<item.cost?'disabled':'')+'>Comprar</button>')+'</article>';
+      }).join('')+'</div>';
+    panel.querySelectorAll('[data-gear-buy]').forEach(btn=>btn.addEventListener('click',()=>{
+      const item=catalog.find(x=>x.id===btn.dataset.gearBuy);if(!item||g.owned.includes(item.id)||p.rpg.gold<item.cost)return;
+      p.rpg.gold-=item.cost;g.owned.push(item.id);g.equipped[item.slot]=item.id;gameSaveProfile('player');render();window.duelisUpdateMenu?.();say(item.name+' adquirido e equipado!');
+    }));
+    panel.querySelectorAll('[data-gear-equip]').forEach(btn=>btn.addEventListener('click',()=>{
+      const item=catalog.find(x=>x.id===btn.dataset.gearEquip);if(!item||!g.owned.includes(item.id))return;
+      g.equipped[item.slot]=item.id;gameSaveProfile('player');render();say(item.name+' equipado!');
+    }));
+  }
+  const update=window.duelisUpdateMenu;
+  window.duelisUpdateMenu=function(){update?.();render()};
+  const init=gameInit;
+  gameInit=function(){init();render()};
+  const start=game$('startBtn');
+  start?.addEventListener('click',()=>{
+    if(!S?.started||S.mode!=='ai'||S.rpgGearApplied)return;
+    S.rpgGearApplied=true;
+    const g=normalize(GAME_PROFILES.player.gear),weapon=catalog.find(x=>x.id===g.equipped.weapon),armor=catalog.find(x=>x.id===g.equipped.armor),relic=catalog.find(x=>x.id===g.equipped.relic);
+    S.player.maxHp+=armor?.health||0;S.player.hp+=armor?.health||0;
+    S.player.maxEnergy=Math.min(10,S.player.maxEnergy+(relic?.energy||0));S.player.energy=Math.min(S.player.maxEnergy,S.player.energy+(relic?.energy||0));
+    S.player.rpgWeaponBonus=weapon?.attack||0;
+    if(weapon||armor||relic)say('Equipamento aplicado: '+(weapon?weapon.name+' · ':'')+(armor?armor.name+' · ':'')+(relic?relic.name:''));
+    gameRender();
+  });
+  const play=gamePlayCard;
+  gamePlayCard=function(i){
+    const before=S?.player?.units?.length||0,result=play(i);
+    if(S?.mode==='ai'&&S.player.units.length>before){
+      const u=S.player.units[S.player.units.length-1],bonus=S.player.rpgWeaponBonus||0;
+      if(bonus){u.atk+=bonus;gameRender()}
+    }
+    return result;
+  };
+  const style=document.createElement('style');
+  style.textContent='.rpg-equipment-panel{margin:10px 0 3px;padding:12px;border:1px solid #786b91;border-radius:9px;background:linear-gradient(120deg,#211c31,#17243a);text-align:left}.gear-heading{display:flex;justify-content:space-between;gap:8px;color:#e6d6a6;font:800 12px Barlow Condensed,sans-serif;letter-spacing:1.4px}.gear-heading b{color:#c8b8e8}.gear-slots{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin:9px 0}.gear-slot{display:flex;flex-direction:column;gap:4px;padding:7px;border:1px solid #75658a;border-radius:7px;background:#101a2b}.gear-slot small{color:#c6b6dc;font-size:9px}.gear-slot b{font-size:10px;color:#f5e7c8}.gear-slot span{font-size:9px;color:#aeb9ce}.gear-shop{display:grid;gap:6px}.gear-item{display:flex;align-items:center;gap:8px;padding:7px;border:1px solid #ffffff20;border-radius:7px;background:#0d1728}.gear-item-icon{font-size:20px}.gear-item-info{display:flex;flex:1;min-width:0;flex-direction:column;gap:2px}.gear-item-info b{font-size:10px;color:#f5e7c8}.gear-item-info small{font-size:9px;color:#aeb9ce}.gear-item button{border:1px solid #b99a5a;border-radius:6px;padding:5px 8px;background:#51402c;color:#ffedc4;font-size:10px}.gear-item button:disabled{opacity:.5}@media(max-width:520px){.gear-slots{grid-template-columns:1fr}.gear-item-info b{font-size:9px}}';
+  style.id='duelis-rpg-equipment-style';document.head.append(style);
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',render,{once:true});else render();
+})();
+</script>
+
 </body></html>
