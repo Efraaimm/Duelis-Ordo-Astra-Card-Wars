@@ -606,7 +606,7 @@ game$('startBtn').onclick=gameStart;game$('endTurn').onclick=gameEndTurn;game$('
   if(title)title.textContent='DUELIS ORDO ASTRA';
   if(description)description.textContent='Campanha solo: vença batalhas, avance de fase e conquiste novas cartas. A força do exército inimigo cresce com o seu progresso.';
   if(guide)guide.remove();if(mode)mode.style.display='none';
-  const panel=document.createElement('section');panel.className='campaign-panel';panel.innerHTML='<div class="campaign-meta"><span id="menuStage">FASE 1 · O VALE DESPERTA</span><span id="menuCollection">0 cartas</span></div><div class="campaign-summary" id="menuSummary"></div><label for="campaignDifficulty">Desafio<select id="campaignDifficulty"><option value="normal">Guardião · normal</option><option value="veteran">Campeão · difícil</option><option value="mythic">Lendário · muito difícil</option></select></label>';
+  const panel=document.createElement('section');panel.className='campaign-panel';panel.innerHTML='<div class="campaign-meta"><span id="menuStage">FASE 1 · O VALE DESPERTA</span><span id="menuCollection">0 cartas</span><span id="menuGoldBalance">🪙 0 ouro</span></div><div class="campaign-summary" id="menuSummary"></div><label for="campaignDifficulty">Desafio<select id="campaignDifficulty"><option value="normal">Guardião · normal</option><option value="veteran">Campeão · difícil</option><option value="mythic">Lendário · muito difícil</option></select></label>';
   description?.after(panel);
   const actions=document.createElement('div');actions.className='menu-actions';start?.parentElement?.insertBefore(actions,start);if(deck)actions.appendChild(deck);if(start){start.textContent='Iniciar fase';actions.appendChild(start)}
   const rules=document.createElement('button');rules.className='smallbtn';rules.textContent='Como jogar';rules.onclick=()=>game$('help').classList.remove('hidden');actions.appendChild(rules);
@@ -1359,6 +1359,8 @@ html body .game>.bottom>.battle-wheel #endTurn{left:50%!important;top:auto!impor
     if(!p)return;
     p.rpg=normalizeRpg(p.rpg);
     const r=p.rpg,next=xpForNext(r.level),percent=Math.min(100,r.xp/next*100);
+    const goldDisplay=document.getElementById("menuGoldBalance");
+    if(goldDisplay)goldDisplay.textContent="🪙 "+r.gold+" ouro";
     const box=document.getElementById("rpgProgressPanel");
     if(!box)return;
     const effects=[
