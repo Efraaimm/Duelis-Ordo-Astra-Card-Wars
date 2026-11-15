@@ -1081,4 +1081,72 @@ header.top{background:linear-gradient(90deg,#100d17ee,#211728f5,#100d17ee)!impor
  background-repeat:no-repeat!important;
 }
 </style>
+
+<style id="duelis-layout-final-repair">
+/* Final desktop repair: show the brand and let the full battle UI fit or scroll. */
+html,body{
+ height:auto!important;min-height:100%!important;overflow-x:hidden!important;overflow-y:auto!important;
+}
+body{min-height:100dvh!important}
+html body .game{
+ height:auto!important;min-height:100dvh!important;
+ grid-template-rows:auto minmax(430px,1fr) auto!important;
+ overflow:visible!important;
+ padding-bottom:max(16px,env(safe-area-inset-bottom))!important;
+}
+html body .game > header.top{
+ display:flex!important;position:relative!important;
+ height:auto!important;min-height:58px!important;
+ align-items:center!important;justify-content:space-between!important;
+ flex-wrap:nowrap!important;overflow:visible!important;
+ padding:6px 12px!important;gap:12px!important;
+}
+html body .game > header.top > .brand{
+ display:flex!important;visibility:visible!important;opacity:1!important;
+ position:relative!important;inset:auto!important;left:auto!important;top:auto!important;
+ transform:none!important;text-align:left!important;z-index:5!important;
+ flex:1 1 auto!important;min-width:0!important;align-items:center!important;gap:10px!important;
+}
+html body .game > header.top > .brand > .logo{
+ display:grid!important;visibility:visible!important;opacity:1!important;
+ position:relative!important;flex:0 0 42px!important;width:42px!important;height:42px!important;
+ place-items:center!important;border-radius:10px!important;
+}
+html body .game > header.top > .brand h1{
+ display:block!important;visibility:visible!important;opacity:1!important;
+ white-space:normal!important;margin:0!important;font-size:clamp(13px,1.4vw,21px)!important;
+ line-height:1.15!important;letter-spacing:1.5px!important;
+}
+html body .game > header.top > .brand .subtitle{
+ display:block!important;visibility:visible!important;opacity:1!important;
+ font-size:8px!important;letter-spacing:1px!important;margin-top:3px!important;
+}
+html body .game > header.top > .topright{
+ display:flex!important;position:relative!important;flex:0 0 auto!important;
+ width:auto!important;min-width:0!important;justify-content:flex-end!important;gap:5px!important;
+}
+html body .game > .arena{
+ min-height:430px!important;height:auto!important;overflow:visible!important;
+ grid-template-rows:74px minmax(330px,1fr)!important;
+}
+html body .game > .bottom{
+ height:auto!important;min-height:268px!important;overflow:visible!important;
+ padding-bottom:12px!important;
+}
+@media(max-width:850px){
+ html body .game{grid-template-rows:auto minmax(420px,1fr) auto!important}
+ html body .game > header.top{min-height:48px!important;padding:4px 7px!important;gap:5px!important}
+ html body .game > header.top > .brand > .logo{flex-basis:34px!important;width:34px!important;height:34px!important}
+ html body .game > header.top > .brand h1{font-size:12px!important;letter-spacing:.8px!important}
+ html body .game > header.top > .brand .subtitle{display:none!important}
+ html body .game > .arena{min-height:420px!important;grid-template-rows:62px minmax(320px,1fr)!important}
+ html body .game > .bottom{min-height:220px!important}
+}
+@media(max-height:760px) and (min-width:851px){
+ html,body{height:auto!important;overflow-y:auto!important}
+ html body .game{min-height:760px!important;height:auto!important;grid-template-rows:52px minmax(410px,1fr) 250px!important}
+ html body .game > .arena{min-height:410px!important;grid-template-rows:64px minmax(320px,1fr)!important}
+ html body .game > .bottom{min-height:250px!important}
+}
+</style>
 </body></html>
