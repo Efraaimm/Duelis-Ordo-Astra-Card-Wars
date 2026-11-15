@@ -1149,4 +1149,24 @@ html body .game > .bottom{
  html body .game > .bottom{min-height:250px!important}
 }
 </style>
+
+<style id="duelis-card-selection-clip-fix">
+/* Keep selected/hovered cards fully inside the hand viewport.
+   The previous -19px lift was larger than the hand's top safe area. */
+#hand.hand{
+ padding-top:28px!important;
+ padding-bottom:14px!important;
+ scroll-padding-top:28px!important;
+}
+#hand.hand>.card:hover,
+#hand.hand>.card.previewed,
+#hand.hand>.card.committing{
+ transform:translateY(-6px) scale(1.02)!important;
+ transform-origin:center bottom!important;
+ z-index:12!important;
+}
+#hand.hand>.card{transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease!important}
+.handwrap{overflow:visible!important;min-height:0!important}
+</style>
+
 </body></html>
