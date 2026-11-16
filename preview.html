@@ -1842,4 +1842,39 @@ html body .game>.bottom>.battle-wheel #endTurn{left:50%!important;top:auto!impor
 }
 </style>
 
+
+<style id="duelis-android-short-screen-scroll-v3">
+/* Android: ecrãs baixos/landscape — o painel inicial passa a rolar por dentro. */
+@media(max-height:760px){
+ html,body{min-height:100%!important;height:100%!important;overflow:hidden!important}
+ body{overscroll-behavior:none!important}
+ .overlay#intro{
+  position:fixed!important;inset:0!important;
+  display:flex!important;align-items:flex-start!important;justify-content:center!important;
+  overflow-x:hidden!important;overflow-y:auto!important;
+  -webkit-overflow-scrolling:touch!important;
+  overscroll-behavior-y:contain!important;
+  padding:12px 10px 24px!important;
+  box-sizing:border-box!important;
+ }
+ #intro .modal{
+  flex:0 0 auto!important;
+  width:min(900px,100%)!important;
+  min-height:0!important;height:auto!important;
+  max-height:none!important;
+  margin:0 auto 16px!important;
+  overflow:visible!important;
+  padding:20px 16px 28px!important;
+  box-sizing:border-box!important;
+ }
+}
+@media(max-height:760px) and (max-width:900px){
+ #intro .modal .big{font-size:38px!important;margin:2px auto 8px!important}
+ #intro .modal h2{font-size:clamp(25px,5vw,38px)!important;margin:8px 0!important}
+ #intro .modal>p{font-size:14px!important;line-height:1.4!important;margin:8px auto 12px!important}
+ #intro .campaign-panel{margin-top:10px!important}
+ #intro .menu-actions{margin-top:12px!important}
+}
+</style>
+
 </body></html>
