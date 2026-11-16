@@ -1908,4 +1908,95 @@ html body .game>.bottom>.battle-wheel #endTurn{left:50%!important;top:auto!impor
 })();
 </script>
 
+
+<style id="duelis-android-fullscreen-layout-v1">
+/* Mobile-first full viewport layout. Desktop styles remain unchanged. */
+@media(max-width:900px){
+ html,body{
+  width:100%!important;min-width:0!important;
+  min-height:100%!important;height:auto!important;
+  margin:0!important;padding:0!important;
+  overflow-x:hidden!important;overflow-y:auto!important;
+  -webkit-text-size-adjust:100%!important;
+ }
+ body{overscroll-behavior-y:contain!important}
+ .game{
+  width:100%!important;max-width:none!important;
+  min-height:100svh!important;min-height:100dvh!important;
+  margin:0!important;
+  padding:calc(env(safe-area-inset-top,0px) + 8px) calc(env(safe-area-inset-right,0px) + 8px) calc(env(safe-area-inset-bottom,0px) + 10px) calc(env(safe-area-inset-left,0px) + 8px)!important;
+  gap:8px!important;
+ }
+ .top{width:100%!important;min-width:0!important;padding:0 2px 7px!important}
+ .arena{width:100%!important;min-width:0!important}
+ .board,.side,.bottom{min-width:0!important;width:100%!important}
+ .hand{max-width:100%!important;overscroll-behavior-x:contain!important}
+ .overlay#intro,.overlay#result,.help{
+  padding:calc(env(safe-area-inset-top,0px) + 8px) 8px calc(env(safe-area-inset-bottom,0px) + 10px)!important;
+ }
+ #intro .modal,.helpbox,.deckbox{
+  width:100%!important;max-width:620px!important;
+  box-sizing:border-box!important;
+ }
+}
+@media(max-width:700px){
+ .game{padding-left:6px!important;padding-right:6px!important}
+ .topright{gap:5px!important}
+ .brand{gap:7px!important;min-width:0!important}
+ .brand h1{font-size:clamp(16px,4vw,20px)!important;letter-spacing:1px!important}
+ .logo{width:30px!important;height:30px!important;font-size:17px!important}
+ .arena{min-height:0!important;grid-template-rows:auto minmax(118px,1fr) auto minmax(118px,1fr) auto!important;gap:7px!important}
+ .side{padding:7px!important;gap:5px!important;border-radius:8px!important}
+ .profile{gap:7px!important;min-width:0!important}
+ .name{font-size:14px!important}
+ .role{font-size:8px!important;letter-spacing:.7px!important}
+ .avatar{width:30px!important;height:30px!important;flex:0 0 30px!important}
+ .hpbar{width:58px!important}
+ .resources{gap:4px!important}
+ .deck{padding-left:5px!important;font-size:9px!important}
+ .board{padding:7px 4px!important;gap:4px!important}
+ .lane{min-width:0!important;overflow-x:auto!important;justify-content:flex-start!important;padding:4px 2px!important}
+ .unit{flex:0 0 clamp(76px,22vw,96px)!important;width:clamp(76px,22vw,96px)!important;height:88px!important;padding:4px!important}
+ .unit .uicon{font-size:20px!important}
+ .unit .uname{font-size:10px!important}
+ .unit .ustats{font-size:11px!important}
+ .bottom{grid-template-columns:minmax(0,1fr) auto!important;gap:5px!important}
+ .hand{min-height:132px!important;gap:6px!important}
+ .card{width:96px!important;min-width:96px!important;height:128px!important;padding:6px!important}
+ .cardicon{font-size:26px!important;margin:8px 0 3px!important}
+ .cardname{font-size:12px!important;min-height:24px!important}
+ .carddesc{font-size:8px!important}
+ .endturn{width:76px!important;height:45px!important;font-size:12px!important}
+}
+@media(max-height:560px) and (min-width:701px) and (max-width:1100px){
+ html,body{height:100%!important;min-height:100%!important;overflow:hidden!important}
+ .game{
+  height:100dvh!important;min-height:0!important;
+  padding:5px max(8px,env(safe-area-inset-right,0px)) 5px max(8px,env(safe-area-inset-left,0px))!important;
+  gap:4px!important;overflow:hidden!important;
+ }
+ .top{flex:0 0 auto!important;padding-bottom:4px!important}
+ .arena{
+  flex:1 1 auto!important;min-height:0!important;
+  grid-template-rows:58px minmax(78px,1fr) 28px minmax(78px,1fr) 58px!important;
+  gap:4px!important;
+ }
+ .side{padding:4px 8px!important}
+ .avatar{width:32px!important;height:32px!important}
+ .board{min-height:0!important;padding:4px 8px!important}
+ .lane{min-height:0!important;overflow-x:auto!important}
+ .unit{height:76px!important;min-height:76px!important;width:88px!important;flex-basis:88px!important;padding:4px!important}
+ .unit .uicon{font-size:19px!important}
+ .bottom{min-height:0!important;grid-template-columns:minmax(0,1fr) auto!important;gap:6px!important}
+ .handtitle{margin-bottom:2px!important}
+ .hand{min-height:0!important;height:112px!important;overflow-x:auto!important;padding:2px!important}
+ .card{height:104px!important;min-height:104px!important;width:82px!important;min-width:82px!important;padding:4px!important}
+ .cardicon{font-size:20px!important;margin:4px 0!important}
+ .carddesc{display:none!important}
+ .cardname{font-size:11px!important;min-height:20px!important}
+ .endturn{height:42px!important;width:88px!important}
+ .feed{min-height:24px!important;padding:4px!important;font-size:10px!important}
+}
+</style>
+
 </body></html>
