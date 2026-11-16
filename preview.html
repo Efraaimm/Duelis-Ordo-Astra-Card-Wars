@@ -1771,4 +1771,46 @@ html body .game>.bottom>.battle-wheel #endTurn{left:50%!important;top:auto!impor
 }
 </style>
 
+
+<style id="duelis-android-intro-scroll-fix">
+/* Android WebView: permitir rolagem vertical real no ecrã inicial. */
+@media(max-width:600px){
+ html,body{
+  height:auto!important;
+  min-height:100%!important;
+  overflow-x:hidden!important;
+  overflow-y:auto!important;
+  overscroll-behavior-y:auto!important;
+  -webkit-overflow-scrolling:touch!important;
+ }
+ body{touch-action:pan-y!important}
+ .overlay#intro{
+  position:fixed!important;
+  inset:0!important;
+  display:block!important;
+  overflow-x:hidden!important;
+  overflow-y:auto!important;
+  -webkit-overflow-scrolling:touch!important;
+  overscroll-behavior-y:contain!important;
+  touch-action:pan-y!important;
+  padding:calc(env(safe-area-inset-top,0px) + 12px) 10px calc(env(safe-area-inset-bottom,0px) + 24px)!important;
+  box-sizing:border-box!important;
+ }
+ #intro .modal{
+  width:100%!important;
+  max-width:560px!important;
+  min-height:0!important;
+  height:auto!important;
+  max-height:none!important;
+  margin:0 auto 18px!important;
+  padding:24px 16px 28px!important;
+  overflow:visible!important;
+  box-sizing:border-box!important;
+  flex:none!important;
+  touch-action:pan-y!important;
+ }
+ #intro .modal *{touch-action:pan-y}
+}
+</style>
+
 </body></html>
