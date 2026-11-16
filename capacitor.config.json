@@ -1,0 +1,9 @@
+{
+  "appId": "com.duelisordoastra.cardwars",
+  "appName": "Duelis Ordo Astra",
+  "webDir": "www",
+  "bundledWebRuntime": false,
+  "server": {
+    "androidScheme": "https"
+  }
+}
