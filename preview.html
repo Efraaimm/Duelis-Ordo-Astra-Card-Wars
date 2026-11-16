@@ -1,7 +1,7 @@
 <!doctype  html>
 <html  lang="pt-BR">
 <head>
-<meta  charset="utf-8"><meta  name="viewport"  content="width=device-width,initial-scale=1"><meta  name="theme-color"  content="#101810"><title>DUELIS ORDO ASTRA — CARD WARS</title>
+<meta  charset="utf-8"><meta  name="viewport"  content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content"><meta  name="theme-color"  content="#101810"><title>DUELIS ORDO ASTRA — CARD WARS</title>
 <meta name="description" content="DUELIS ORDO ASTRA: um jogo de cartas de fantasia sombria, heróis, ordens e batalhas táticas.">
 <style>
 @import  url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Barlow:wght@400;500;600;700;800&display=swap');
@@ -1996,6 +1996,99 @@ html body .game>.bottom>.battle-wheel #endTurn{left:50%!important;top:auto!impor
  .cardname{font-size:11px!important;min-height:20px!important}
  .endturn{height:42px!important;width:88px!important}
  .feed{min-height:24px!important;padding:4px!important;font-size:10px!important}
+}
+</style>
+
+
+<style id="duelis-android-screen-fit-v2">
+/* Aproveita toda a área útil do Android, sem cortar conteúdo nem alterar desktop. */
+@media(max-width:900px){
+ html,body{
+  width:100%!important;max-width:100%!important;min-width:0!important;
+  margin:0!important;padding:0!important;
+  overflow-x:hidden!important;
+  -webkit-text-size-adjust:100%!important;
+ }
+ body{background-attachment:scroll!important}
+ .game{
+  width:100vw!important;max-width:none!important;
+  margin:0!important;border-left:0!important;border-right:0!important;
+  border-radius:0!important;box-shadow:none!important;
+  padding:
+   max(env(safe-area-inset-top,0px),4px)
+   max(env(safe-area-inset-right,0px),5px)
+   max(env(safe-area-inset-bottom,0px),6px)
+   max(env(safe-area-inset-left,0px),5px)!important;
+  gap:6px!important;
+ }
+ .top,.arena,.bottom{width:100%!important;max-width:none!important;min-width:0!important}
+ .overlay#intro,.overlay#result,.help{
+  padding:
+   max(env(safe-area-inset-top,0px),8px)
+   max(env(safe-area-inset-right,0px),7px)
+   max(env(safe-area-inset-bottom,0px),8px)
+   max(env(safe-area-inset-left,0px),7px)!important;
+ }
+ #intro .modal,.helpbox,.deckbox{max-width:100%!important}
+}
+/* Paisagem: HUD ocupa a altura/largura útil sem rolagem da página. */
+@media(max-width:900px) and (orientation:landscape){
+ html,body{height:100%!important;min-height:100%!important;overflow:hidden!important}
+ .game{
+  height:100vh!important;height:100dvh!important;
+  min-height:0!important;max-height:100dvh!important;
+  overflow:hidden!important;
+  display:flex!important;flex-direction:column!important;
+  padding:
+   max(env(safe-area-inset-top,0px),3px)
+   max(env(safe-area-inset-right,0px),6px)
+   max(env(safe-area-inset-bottom,0px),3px)
+   max(env(safe-area-inset-left,0px),6px)!important;
+  gap:4px!important;
+ }
+ .top{flex:0 0 34px!important;min-height:34px!important;height:34px!important;padding:0 3px 3px!important}
+ .brand h1{font-size:clamp(14px,2.7vw,19px)!important}
+ .subtitle{display:none!important}
+ .topright{gap:3px!important}
+ .topright .iconbtn{min-width:28px!important;width:28px!important;height:28px!important;padding:2px!important}
+ .arena{
+  flex:1 1 auto!important;min-height:0!important;height:auto!important;
+  grid-template-columns:minmax(0,1fr)!important;
+  grid-template-rows:clamp(42px,11vh,58px) minmax(80px,1fr) 0 minmax(80px,1fr) clamp(94px,23vh,126px)!important;
+  gap:3px!important;overflow:hidden!important;
+ }
+ .arena>.side{min-height:0!important;height:auto!important;padding:3px 7px!important;overflow:hidden!important}
+ .arena>.side.player{grid-column:1!important;grid-row:5!important}
+ .arena>.side:not(.player){grid-column:1!important;grid-row:1!important}
+ .arena>.board{grid-column:1!important;grid-row:2/5!important;grid-template-columns:minmax(0,1fr)!important;grid-template-rows:1fr 1fr!important;min-height:0!important;height:100%!important;padding:3px!important;gap:3px!important;overflow:hidden!important}
+ .arena>.board #enemyLane{grid-column:1!important;grid-row:1!important}
+ .arena>.board #playerLane{grid-column:1!important;grid-row:2!important}
+ .arena>.board .lane{min-height:0!important;height:100%!important;max-height:none!important;overflow-x:auto!important;overflow-y:hidden!important;flex-wrap:nowrap!important;justify-content:flex-start!important;align-content:center!important;padding:14px 5px 3px!important;gap:5px!important}
+ .arena>.board .lane .unit{flex:0 0 clamp(66px,11vh,92px)!important;width:clamp(66px,11vh,92px)!important;height:clamp(66px,17vh,94px)!important;min-height:0!important;padding:3px!important}
+ .arena>.board .lane .unit .uicon{font-size:18px!important}
+ .arena>.board .lane .unit .uname{font-size:9px!important;line-height:1.05!important}
+ .arena>.board .lane .unit .ustats{font-size:9px!important}
+ .arena>.board .lane-label{top:2px!important;left:8px!important;right:auto!important;bottom:auto!important;font-size:7px!important;padding:2px 5px!important}
+ .arena>.board .lane-label.playerlane{top:2px!important;left:8px!important;right:auto!important;bottom:auto!important}
+ .arena>.feed{display:none!important}
+ .bottom{grid-row:auto!important;flex:0 0 auto!important;min-height:0!important;height:clamp(94px,23vh,126px)!important;grid-template-columns:42px minmax(0,1fr) 68px!important;gap:4px!important;overflow:hidden!important}
+ .handwrap{min-width:0!important;overflow:hidden!important}
+ .handtitle{font-size:8px!important;margin:0 0 2px!important}
+ .hand{height:calc(clamp(94px,23vh,126px) - 17px)!important;min-height:0!important;max-height:none!important;padding:2px!important;gap:4px!important;overflow-x:auto!important;overflow-y:hidden!important;justify-content:flex-start!important}
+ .hand .card{flex:0 0 clamp(58px,10vh,76px)!important;width:clamp(58px,10vh,76px)!important;min-width:clamp(58px,10vh,76px)!important;height:calc(clamp(94px,23vh,126px) - 23px)!important;min-height:0!important;max-height:none!important;padding:3px!important}
+ .hand .cardicon{font-size:18px!important;margin:3px 0!important}
+ .hand .cardname{font-size:9px!important;min-height:17px!important}
+ .hand .carddesc{display:none!important}
+ .energy-dock>.energy{width:36px!important;height:36px!important;min-width:36px!important}
+ .deck-pile,.pass-stack .pile-button{width:32px!important;min-width:32px!important;height:34px!important}
+ .pass-stack .endturn{width:64px!important;height:38px!important;font-size:9px!important}
+}
+/* Retrato: usa a altura completa disponível e permite rolar quando necessário. */
+@media(max-width:700px) and (orientation:portrait){
+ html,body{height:auto!important;min-height:100%!important;overflow-x:hidden!important;overflow-y:auto!important}
+ .game{min-height:100vh!important;min-height:100dvh!important;height:auto!important;overflow:visible!important}
+ .arena{grid-template-rows:auto minmax(130px,auto) auto minmax(130px,auto) auto!important}
+ .arena>.board{min-height:270px!important}
 }
 </style>
 
