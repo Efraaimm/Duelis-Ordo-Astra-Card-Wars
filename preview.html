@@ -1878,30 +1878,26 @@ html body .game>.bottom>.battle-wheel #endTurn{left:50%!important;top:auto!impor
 </style>
 
 
-<script id="duelis-android-start-touch-fix">
+<script id="duelis-android-buttons-fix">
 (()=>{
-  const button=document.getElementById('startBtn');
-  if(!button)return;
-  button.type='button';
-  button.style.touchAction='manipulation';
-  button.style.webkitTapHighlightColor='transparent';
-  let lastStart=0;
-  function launchFromTouch(event){
-    if(event.pointerType!=='touch' && event.type!=='touchend')return;
-    if(!button.isConnected || button.disabled)return;
-    if(S?.started)return;
-    const now=Date.now();
-    if(now-lastStart<700)return;
-    lastStart=now;
-    event.preventDefault();
-    event.stopPropagation();
-    if(typeof start==='function')start();
+  function bridgeTouchToClick(id){
+    const button=document.getElementById(id);
+    if(!button)return;
+    button.type='button';
+    button.style.touchAction='manipulation';
+    let last=0;
+    button.addEventListener('pointerup',event=>{
+      if(event.pointerType!=='touch')return;
+      if(!button.isConnected || button.disabled)return;
+      const now=Date.now();
+      if(now-last<650)return;
+      last=now;
+      event.preventDefault();
+      button.dispatchEvent(new MouseEvent('click',{bubbles:true,cancelable:true,view:window}));
+    },{passive:false});
   }
-  button.addEventListener('pointerup',launchFromTouch,{capture:true});
-  button.addEventListener('touchend',launchFromTouch,{capture:true,passive:false});
-  button.addEventListener('click',()=>{
-    if(!S?.started && typeof start==='function')start();
-  },{capture:true});
+  bridgeTouchToClick('startBtn');
+  bridgeTouchToClick('openDeckBtn');
 })();
 </script>
 
