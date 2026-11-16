@@ -1878,26 +1878,33 @@ html body .game>.bottom>.battle-wheel #endTurn{left:50%!important;top:auto!impor
 </style>
 
 
-<script id="duelis-android-buttons-fix">
+<script id="duelis-android-buttons-fix-v2">
 (()=>{
-  function bridgeTouchToClick(id){
-    const button=document.getElementById(id);
-    if(!button)return;
-    button.type='button';
-    button.style.touchAction='manipulation';
-    let last=0;
-    button.addEventListener('pointerup',event=>{
-      if(event.pointerType!=='touch')return;
-      if(!button.isConnected || button.disabled)return;
-      const now=Date.now();
-      if(now-last<650)return;
-      last=now;
-      event.preventDefault();
-      button.dispatchEvent(new MouseEvent('click',{bubbles:true,cancelable:true,view:window}));
-    },{passive:false});
+  const ids=['startBtn','openDeckBtn'];
+  let lastTouch=0;
+  function activate(id,event){
+    const el=document.getElementById(id);
+    if(!el||el.disabled||!el.isConnected)return;
+    const now=Date.now();
+    if(now-lastTouch<700)return;
+    lastTouch=now;
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    const handler=el.onclick;
+    if(typeof handler==='function')handler.call(el,event);
+    else el.click();
   }
-  bridgeTouchToClick('startBtn');
-  bridgeTouchToClick('openDeckBtn');
+  for(const id of ids){
+    const el=document.getElementById(id);
+    if(!el)continue;
+    el.type='button';
+    el.style.pointerEvents='auto';
+    el.style.touchAction='manipulation';
+    el.addEventListener('touchend',e=>activate(id,e),{capture:true,passive:false});
+    el.addEventListener('pointerup',e=>{
+      if(e.pointerType==='touch')activate(id,e);
+    },{capture:true});
+  }
 })();
 </script>
 
