@@ -1759,4 +1759,44 @@ html body .game>.bottom>.battle-wheel #endTurn{left:50%!important;top:auto!impor
   else bind();
 })();
 </script>
+
+<script id="duelis-start-button-hardwire-v2">
+(()=>{
+  function attach(){
+    const btn=document.getElementById('startBtn');
+    if(!btn||btn.dataset.duelisHardwired==='yes')return;
+    btn.dataset.duelisHardwired='yes';
+    btn.addEventListener('click',function(ev){
+      ev.preventDefault();
+      ev.stopImmediatePropagation();
+      try{
+        if(typeof gameStart!=='function')throw new Error('gameStart não está disponível');
+        if(!GAME_PROFILES?.player||!S)throw new Error('O perfil ou o estado do jogo não foi inicializado');
+        gameStart();
+        if(!S.started){
+          if((GAME_PROFILES.player.deck||[]).length<6){
+            if(typeof gameOpenDeckBuilder==='function')gameOpenDeckBuilder('player');
+            if(typeof say==='function')say('Escolhe pelo menos 6 cartas no deck para iniciar a batalha.');
+          }
+          return;
+        }
+        const difficulty=document.getElementById('campaignDifficulty')?.value||'normal';
+        const stage=GAME_PROFILES.player.selectedStage||GAME_PROFILES.player.stage||1;
+        const bonus={normal:{hp:0,shield:0,energy:0,cards:0},veteran:{hp:5,shield:1,energy:1,cards:1},mythic:{hp:10,shield:2,energy:2,cards:2}}[difficulty]||{hp:0,shield:0,energy:0,cards:0};
+        S.enemy.maxHp+=bonus.hp+Math.floor((stage-1)*bonus.hp/2);
+        S.enemy.hp=S.enemy.maxHp;
+        S.enemy.maxShield=Math.min(16,S.enemy.maxShield+bonus.shield+Math.floor((stage-1)/4));
+        S.enemy.shield=Math.min(S.enemy.maxShield,S.enemy.shield+bonus.shield+Math.floor((stage-1)/4));
+        S.enemy.maxEnergy=Math.min(6,S.enemy.maxEnergy+bonus.energy+Math.floor((stage-1)/6));
+        if(bonus.cards)gameDraw('enemy',bonus.cards);
+        gameRender();
+      }catch(err){
+        console.error('Erro no início da batalha:',err);
+        if(typeof say==='function')say('Falha ao iniciar: '+(err?.message||err));
+      }
+    },true);
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',attach,{once:true});else attach();
+})();
+</script>
 </body></html>
