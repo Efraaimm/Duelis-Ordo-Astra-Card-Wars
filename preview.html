@@ -1561,4 +1561,34 @@ html body .game>.bottom>.battle-wheel #endTurn{left:50%!important;top:auto!impor
 })();
 </script>
 
+
+<script id="duelis-menu-gold-balance">
+(()=>{
+  'use strict';
+  function updateGold(){
+    const panel=document.querySelector('#intro .campaign-panel');
+    if(!panel)return;
+    let balance=document.getElementById('menuGoldBalance');
+    if(!balance){
+      balance=document.createElement('div');
+      balance.id='menuGoldBalance';
+      balance.className='menu-gold-balance';
+      const meta=panel.querySelector('.campaign-meta');
+      if(meta)meta.after(balance);else panel.prepend(balance);
+    }
+    const gold=Math.max(0,Number(GAME_PROFILES?.player?.rpg?.gold)||0);
+    balance.innerHTML='<span>TESOURO DO CAMPEÃO</span><b>🪙 '+gold+' OURO</b>';
+  }
+  const previousUpdate=window.duelisUpdateMenu;
+  window.duelisUpdateMenu=function(){previousUpdate?.();updateGold()};
+  const previousSave=gameSaveProfile;
+  gameSaveProfile=function(side){const result=previousSave(side);if(side==='player')updateGold();return result};
+  const style=document.createElement('style');
+  style.textContent='.menu-gold-balance{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:8px 0;padding:9px 11px;border:1px solid #a9823f;border-radius:7px;background:linear-gradient(110deg,#302719,#151d2b);color:#d8c69c;font-size:10px;font-weight:800;letter-spacing:1px}.menu-gold-balance b{color:#ffdc79;font-size:13px;white-space:nowrap;text-shadow:0 0 9px #d9a83c55}';
+  document.head.append(style);
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',updateGold,{once:true});
+  else updateGold();
+})();
+</script>
+
 </body></html>
