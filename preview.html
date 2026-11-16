@@ -1727,4 +1727,48 @@ html body .game>.bottom>.battle-wheel #endTurn{left:50%!important;top:auto!impor
 }
 </style>
 
+
+<style id="duelis-hud-final-balance">
+/* HUD definitiva — manter a batalha vertical e aproveitar melhor a largura. */
+@media(min-width:761px){
+ html body .game>.arena>.board{
+  gap:12px!important;
+  padding:34px 24px 30px!important;
+ }
+ html body .game>.arena>.board>.lane{
+  justify-content:space-evenly!important;
+  gap:clamp(14px,2vw,30px)!important;
+  padding:18px clamp(18px,3vw,42px) 8px!important;
+  background:
+   radial-gradient(ellipse at 18% 50%,#a57a4b12,transparent 27%),
+   radial-gradient(ellipse at 82% 50%,#a57a4b12,transparent 27%),
+   linear-gradient(90deg,#090d1a30,#18213b66 50%,#090d1a30)!important;
+ }
+ html body .game>.arena>.board>.lane .unit{
+  flex:0 0 clamp(148px,11vw,176px)!important;
+  width:clamp(148px,11vw,176px)!important;
+  height:clamp(166px,20vh,196px)!important;
+  min-height:166px!important;
+  max-height:196px!important;
+ }
+ html body .game>.arena>.board>.lane .unit .uicon{font-size:34px!important}
+ html body .game>.arena>.board>.lane .unit .uname{font-size:clamp(13px,1.05vw,16px)!important}
+ html body .game>.arena>.board>.lane .unit .ustats{font-size:16px!important}
+ html body .game>.bottom #hand.hand:not(:has(>.card:nth-child(6))){
+  justify-content:center!important;
+ }
+ html body .game>.bottom #hand.hand>.card{
+  flex-basis:clamp(140px,10vw,158px)!important;
+  width:clamp(140px,10vw,158px)!important;
+  min-width:clamp(140px,10vw,158px)!important;
+  height:190px!important;
+  min-height:190px!important;
+  max-height:190px!important;
+ }
+}
+@media(max-width:760px){
+ html body .game>.arena>.board>.lane{justify-content:center!important}
+}
+</style>
+
 </body></html>
