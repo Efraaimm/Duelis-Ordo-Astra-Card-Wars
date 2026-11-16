@@ -1799,4 +1799,49 @@ html body .game>.bottom>.battle-wheel #endTurn{left:50%!important;top:auto!impor
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',attach,{once:true});else attach();
 })();
 </script>
+
+<script id="duelis-menu-recovery-v3">
+(()=>{
+ function bind(){
+  const deckBtn=document.getElementById('openDeckBtn');
+  const startBtn=document.getElementById('startBtn');
+  const deckOverlay=document.getElementById('deckBuilder');
+  const intro=document.getElementById('intro');
+  if(!deckBtn||!startBtn||!deckOverlay||!intro)return;
+  deckBtn.addEventListener('click',ev=>{
+   ev.preventDefault();ev.stopImmediatePropagation();
+   try{
+    if(S)S.started=false;
+    if(typeof gameRenderDeckEditor==='function')gameRenderDeckEditor();
+    deckOverlay.classList.remove('hidden');
+    deckOverlay.style.display='flex';
+   }catch(err){console.error('Erro ao abrir deck:',err);alert('Erro ao abrir o deck: '+err.message)}
+  },true);
+  startBtn.addEventListener('click',ev=>{
+   ev.preventDefault();ev.stopImmediatePropagation();
+   try{
+    if(!GAME_PROFILES?.player)throw new Error('Perfil do jogador não carregado');
+    if((GAME_PROFILES.player.deck||[]).length<6){
+     if(S)S.started=false;
+     if(typeof gameRenderDeckEditor==='function')gameRenderDeckEditor();
+     deckOverlay.classList.remove('hidden');deckOverlay.style.display='flex';
+     if(typeof say==='function')say('Escolhe pelo menos 6 cartas para iniciar.');
+     return;
+    }
+    if(S)S.started=false;
+    if(typeof gameStart!=='function')throw new Error('Motor de batalha indisponível');
+    gameStart();
+    if(!S?.started)throw new Error('A batalha não foi iniciada. Confirma se o deck tem 6 cartas.');
+    intro.classList.add('hidden');
+   }catch(err){
+    if(S)S.started=false;
+    console.error('Erro ao iniciar duelo:',err);
+    if(typeof say==='function')say('Não foi possível iniciar: '+err.message);
+    else alert('Não foi possível iniciar: '+err.message);
+   }
+  },true);
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',bind,{once:true});else bind();
+})();
+</script>
 </body></html>
