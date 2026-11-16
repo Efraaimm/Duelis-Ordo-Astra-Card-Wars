@@ -1591,4 +1591,76 @@ html body .game>.bottom>.battle-wheel #endTurn{left:50%!important;top:auto!impor
 })();
 </script>
 
+
+<style id="duelis-arena-space-balance">
+/* Arena: usar melhor a área central sem alterar as mecânicas ou os controlos. */
+@media(min-width:761px){
+ html body .game>.arena{
+  grid-template-rows:88px minmax(360px,1fr)!important;
+  min-height:470px!important;
+  gap:10px!important;
+ }
+ html body .game>.arena>.board{
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr)!important;
+  grid-template-rows:minmax(0,1fr) minmax(0,1fr)!important;
+  gap:10px!important;
+  padding:30px 24px!important;
+  min-height:360px!important;
+  box-sizing:border-box!important;
+  background-size:cover!important;
+ }
+ html body .game>.arena>.board>.lane{
+  position:relative!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:clamp(10px,1.5vw,22px)!important;
+  width:100%!important;
+  height:100%!important;
+  min-height:0!important;
+  padding:18px 14px 8px!important;
+  overflow-x:auto!important;
+  overflow-y:hidden!important;
+  box-sizing:border-box!important;
+  border:1px solid #a9826c44!important;
+  border-radius:10px!important;
+  background:linear-gradient(90deg,#090d1a22,#18213b55 50%,#090d1a22)!important;
+ }
+ html body .game>.arena>.board>.lane-label{
+  position:absolute!important;
+  left:38px!important;
+  right:auto!important;
+  top:12px!important;
+  bottom:auto!important;
+  z-index:4!important;
+  padding:4px 10px!important;
+  border:1px solid #b58b6c88!important;
+  border-radius:20px!important;
+  background:#100d1bdc!important;
+  color:#f0d9b5!important;
+  font-size:10px!important;
+  letter-spacing:2px!important;
+ }
+ html body .game>.arena>.board>.lane-label.playerlane{
+  left:auto!important;
+  right:38px!important;
+  top:auto!important;
+  bottom:12px!important;
+ }
+ html body .game>.arena>.board>.lane .unit{
+  flex:0 0 clamp(122px,10.5vw,158px)!important;
+  width:clamp(122px,10.5vw,158px)!important;
+  height:clamp(158px,19vh,196px)!important;
+  min-height:158px!important;
+  border-radius:8px 16px 8px 16px!important;
+ }
+ html body .game>.arena>.board>.lane .unit .uname{
+  font-size:clamp(12px,1vw,16px)!important;
+  padding:5px 7px!important;
+ }
+ html body .game>.arena>.board>.lane .unit .ustats{font-size:15px!important;padding:4px 7px!important}
+}
+</style>
+
 </body></html>
