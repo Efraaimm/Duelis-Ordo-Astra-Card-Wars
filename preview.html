@@ -1771,4 +1771,39 @@ html body .game>.bottom>.battle-wheel #endTurn{left:50%!important;top:auto!impor
 }
 </style>
 
+
+<style id="duelis-hud-unit-presence-v2">
+/* Dar presença visual às cartas de unidade sem mudar o tabuleiro vertical. */
+@media(min-width:761px){
+ html body .game>.arena>.board{
+  padding-left:20px!important;
+  padding-right:20px!important;
+  gap:14px!important;
+ }
+ html body .game>.arena>.board>.lane{
+  padding-left:24px!important;
+  padding-right:24px!important;
+  gap:clamp(12px,1.4vw,22px)!important;
+ }
+ html body .game>.arena>.board>.lane .unit{
+  flex:0 0 clamp(160px,12vw,190px)!important;
+  width:clamp(160px,12vw,190px)!important;
+  height:clamp(184px,22vh,214px)!important;
+  min-height:184px!important;
+  max-height:214px!important;
+  padding:8px 9px!important;
+ }
+ html body .game>.arena>.board>.lane .unit .uicon{font-size:38px!important}
+ html body .game>.arena>.board>.lane .unit .uname{
+  font-size:clamp(14px,1.1vw,17px)!important;
+  line-height:1.12!important;
+  padding:6px 8px!important;
+ }
+ html body .game>.arena>.board>.lane .unit .ustats{
+  font-size:17px!important;
+  padding:5px 8px!important;
+ }
+}
+</style>
+
 </body></html>
