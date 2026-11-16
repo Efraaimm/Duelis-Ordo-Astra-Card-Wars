@@ -1816,7 +1816,7 @@ html body .game>.bottom>.battle-wheel #endTurn{left:50%!important;top:auto!impor
   old.replaceWith(btn);
   btn.addEventListener('click',()=>{
    try{
-    if(!window.S||!window.GAME_PROFILES||!GAME_PROFILES.player)throw new Error('O jogo ainda não terminou de carregar. Atualiza a página.');
+    if(typeof S==='undefined'||typeof GAME_PROFILES==='undefined'||!GAME_PROFILES.player)throw new Error('O jogo ainda não terminou de carregar. Atualiza a página.');
     if((GAME_PROFILES.player.deck||[]).length<6){
      if(typeof gameOpenDeck==='function')gameOpenDeck('player');
      else if(typeof gameOpenDeckBuilder==='function')gameOpenDeckBuilder('player');
