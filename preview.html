@@ -1806,4 +1806,40 @@ html body .game>.bottom>.battle-wheel #endTurn{left:50%!important;top:auto!impor
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',bind,{once:true});else bind();
 })();
 </script>
+
+<script id="duelis-single-start-controller-v1">
+(()=>{
+ function install(){
+  const old=document.getElementById('startBtn');
+  if(!old)return;
+  const btn=old.cloneNode(true);
+  old.replaceWith(btn);
+  btn.addEventListener('click',()=>{
+   try{
+    if(!window.S||!window.GAME_PROFILES||!GAME_PROFILES.player)throw new Error('O jogo ainda não terminou de carregar. Atualiza a página.');
+    if((GAME_PROFILES.player.deck||[]).length<6){
+     if(typeof gameOpenDeck==='function')gameOpenDeck('player');
+     else if(typeof gameOpenDeckBuilder==='function')gameOpenDeckBuilder('player');
+     throw new Error('O deck precisa de pelo menos 6 cartas.');
+    }
+    const difficulty=document.getElementById('campaignDifficulty')?.value||'normal';
+    localStorage.setItem('cronicas-vale:dificuldade',difficulty);
+    if(S.started)S.started=false;
+    gameStart();
+    if(!S.started)throw new Error('O motor não iniciou a batalha. Verifica o deck selecionado.');
+    const stage=GAME_PROFILES.player.selectedStage||GAME_PROFILES.player.stage||1;
+    const bonus={normal:{hp:0,shield:0,energy:0,cards:0},veteran:{hp:5,shield:1,energy:1,cards:1},mythic:{hp:10,shield:2,energy:2,cards:2}}[difficulty]||{hp:0,shield:0,energy:0,cards:0};
+    S.enemy.maxHp+=bonus.hp+Math.floor((stage-1)*bonus.hp/2);
+    S.enemy.hp=S.enemy.maxHp;
+    S.enemy.maxShield=Math.min(16,S.enemy.maxShield+bonus.shield+Math.floor((stage-1)/4));
+    S.enemy.shield=Math.min(S.enemy.maxShield,S.enemy.shield+bonus.shield+Math.floor((stage-1)/4));
+    S.enemy.maxEnergy=Math.min(6,S.enemy.maxEnergy+bonus.energy+Math.floor((stage-1)/6));
+    if(bonus.cards)gameDraw('enemy',bonus.cards);
+    gameRender();
+   }catch(err){console.error('Início da batalha:',err);if(typeof say==='function')say(err.message);else alert(err.message)}
+  });
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install,{once:true});else install();
+})();
+</script>
 </body></html>
