@@ -1663,4 +1663,68 @@ html body .game>.bottom>.battle-wheel #endTurn{left:50%!important;top:auto!impor
 }
 </style>
 
+
+<style id="duelis-arena-lane-layout-fix">
+/* Correção da grelha: os rótulos deixam de ocupar células da arena. */
+@media(min-width:761px){
+ html body .game>.arena>.board{
+  position:relative!important;
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:stretch!important;
+  align-items:stretch!important;
+  gap:8px!important;
+  padding:34px 22px 30px!important;
+  overflow:hidden!important;
+  box-sizing:border-box!important;
+ }
+ html body .game>.arena>.board>.lane-label{
+  position:absolute!important;
+  z-index:5!important;
+  left:38px!important;
+  right:auto!important;
+  top:9px!important;
+  bottom:auto!important;
+  width:max-content!important;
+  max-width:45%!important;
+  white-space:nowrap!important;
+  pointer-events:none!important;
+ }
+ html body .game>.arena>.board>.lane-label.playerlane{
+  left:auto!important;
+  right:38px!important;
+  top:auto!important;
+  bottom:8px!important;
+ }
+ html body .game>.arena>.board>.lane{
+  position:relative!important;
+  display:flex!important;
+  flex:1 1 50%!important;
+  width:100%!important;
+  min-width:0!important;
+  min-height:0!important;
+  height:auto!important;
+  max-height:none!important;
+  align-items:center!important;
+  justify-content:center!important;
+  flex-wrap:nowrap!important;
+  gap:clamp(10px,1.5vw,22px)!important;
+  padding:18px 14px 5px!important;
+  overflow-x:auto!important;
+  overflow-y:hidden!important;
+  box-sizing:border-box!important;
+  border:1px solid #a9826c44!important;
+  border-radius:10px!important;
+  background:linear-gradient(90deg,#090d1a22,#18213b55 50%,#090d1a22)!important;
+ }
+ html body .game>.arena>.board>.lane .unit{
+  flex:0 0 clamp(122px,10.5vw,158px)!important;
+  width:clamp(122px,10.5vw,158px)!important;
+  height:clamp(150px,18vh,188px)!important;
+  min-height:150px!important;
+  max-height:188px!important;
+ }
+}
+</style>
+
 </body></html>
